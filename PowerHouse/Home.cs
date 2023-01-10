@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace PowerHouse
 {
-    public partial class Home : MetroFramework.Forms.MetroForm
+    public partial class Home : Form
     {
         public Home()
         {
@@ -23,8 +23,8 @@ namespace PowerHouse
             float fram = pRAM.NextValue();
             bunifuProgressBarCPU.Value = (int)fcpu;
             bunifuProgressBarRAM.Value = (int)fram;
-            lblCPU.Text = string.Format("{0:0.00}%", fcpu);
-            lblRAM.Text = string.Format("{0:0.00}%", fram);
+            lbl_cpu.Text = string.Format("{0:0.00}%", fcpu);
+            lbl_ram.Text = string.Format("{0:0.00}%", fram);
             chart_cpu.Series["CPU"].Points.AddY(fcpu);
             chart_ram.Series["RAM"].Points.AddY(fram);
         }
