@@ -25,8 +25,8 @@ namespace PowerHouse
             bunifuProgressBarRAM.Value = (int)fram;
             lblCPU.Text = string.Format("{0:0.00}%", fcpu);
             lblRAM.Text = string.Format("{0:0.00}%", fram);
-            chart.Series["CPU"].Points.AddY(fcpu);
-            chart.Series["RAM"].Points.AddY(fram);
+            chart_cpu.Series["CPU"].Points.AddY(fcpu);
+            chart_ram.Series["RAM"].Points.AddY(fram);
         }
 
         private void Home_Load(object sender, EventArgs e)

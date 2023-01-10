@@ -15,3 +15,18 @@ C:\Users\Wanga\Documents\Visual Studio 2015\Projects\PowerHouse\PowerHouse\bin\D
 C:\Users\Wanga\Documents\Visual Studio 2015\Projects\PowerHouse\PowerHouse\bin\Debug\Bunifu.UI.WinForms.BunifuButton.xml
 C:\Users\Wanga\Documents\Visual Studio 2015\Projects\PowerHouse\PowerHouse\bin\Debug\Bunifu.UI.WinForms.BunifuLabel.dll
 C:\Users\Wanga\Documents\Visual Studio 2015\Projects\PowerHouse\PowerHouse\bin\Debug\Bunifu.UI.WinForms.BunifuLabel.xml
+C:\Users\Wanga Kanjala\source\repos\PowerHouse\PowerHouse\obj\Debug\PowerHouse.exe
+C:\Users\Wanga Kanjala\source\repos\PowerHouse\PowerHouse\obj\Debug\PowerHouse.pdb
+C:\Users\Wanga Kanjala\source\repos\PowerHouse\PowerHouse\bin\Debug\PowerHouse.exe.config
+C:\Users\Wanga Kanjala\source\repos\PowerHouse\PowerHouse\bin\Debug\PowerHouse.exe
+C:\Users\Wanga Kanjala\source\repos\PowerHouse\PowerHouse\bin\Debug\PowerHouse.pdb
+C:\Users\Wanga Kanjala\source\repos\PowerHouse\PowerHouse\bin\Debug\Bunifu.UI.WinForms.BunifuButton.xml
+C:\Users\Wanga Kanjala\source\repos\PowerHouse\PowerHouse\bin\Debug\Bunifu.UI.WinForms.BunifuLabel.xml
+C:\Users\Wanga Kanjala\source\repos\PowerHouse\PowerHouse\bin\Debug\Bunifu.UI.WinForms.BunifuProgressBar.xml
+C:\Users\Wanga Kanjala\source\repos\PowerHouse\PowerHouse\obj\Debug\PowerHouse.csprojAssemblyReference.cache
+C:\Users\Wanga Kanjala\source\repos\PowerHouse\PowerHouse\obj\Debug\PowerHouse.Home.resources
+C:\Users\Wanga Kanjala\source\repos\PowerHouse\PowerHouse\obj\Debug\PowerHouse.Properties.Resources.resources
+C:\Users\Wanga Kanjala\source\repos\PowerHouse\PowerHouse\obj\Debug\PowerHouse.csproj.GenerateResource.cache
+C:\Users\Wanga Kanjala\source\repos\PowerHouse\PowerHouse\obj\Debug\PowerHouse.exe.licenses
+C:\Users\Wanga Kanjala\source\repos\PowerHouse\PowerHouse\obj\Debug\PowerHouse.csproj.CoreCompileInputs.cache
+C:\Users\Wanga Kanjala\source\repos\PowerHouse\PowerHouse\obj\Debug\PowerHouse.csproj.CopyComplete
