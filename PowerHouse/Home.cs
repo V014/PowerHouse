@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -21,10 +22,10 @@ namespace PowerHouse
         {
             float fcpu = pCPU.NextValue();
             float fram = pRAM.NextValue();
-            bunifuProgressBarCPU.Value = (int)fcpu;
-            bunifuProgressBarRAM.Value = (int)fram;
-            lbl_cpu.Text = string.Format("{0:0.00}%", fcpu);
-            lbl_ram.Text = string.Format("{0:0.00}%", fram);
+            progress_cpu.Value = (int)fcpu;
+            progress_ram.Value = (int)fram;
+            lbl_cpu_stat.Text = string.Format("{0:0.00}%", fcpu);
+            lbl_ram_stat.Text = string.Format("{0:0.00}%", fram);
             chart_cpu.Series["CPU"].Points.AddY(fcpu);
             chart_ram.Series["RAM"].Points.AddY(fram);
         }
@@ -32,6 +33,19 @@ namespace PowerHouse
         private void Home_Load(object sender, EventArgs e)
         {
             timer.Start();
+            load_processes();
+        }
+
+        private void load_processes()
+        {
+            Process[] processes = Process.GetProcesses();
+            foreach (Process p in processes)
+            {
+                if (!String.IsNullOrEmpty(p.MainWindowTitle))
+                {
+                    listBox1.Items.Add(p.MainWindowTitle);
+                }
+            }
         }
 
         private void btnGraph_Click(object sender, EventArgs e)
@@ -43,5 +57,6 @@ namespace PowerHouse
         {
             this.ClientSize = new System.Drawing.Size(569, 203);
         }
+
     }
 }

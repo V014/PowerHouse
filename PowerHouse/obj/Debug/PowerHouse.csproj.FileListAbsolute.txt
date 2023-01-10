@@ -20,8 +20,6 @@ C:\Users\Wanga Kanjala\source\repos\PowerHouse\PowerHouse\obj\Debug\PowerHouse.p
 C:\Users\Wanga Kanjala\source\repos\PowerHouse\PowerHouse\bin\Debug\PowerHouse.exe.config
 C:\Users\Wanga Kanjala\source\repos\PowerHouse\PowerHouse\bin\Debug\PowerHouse.exe
 C:\Users\Wanga Kanjala\source\repos\PowerHouse\PowerHouse\bin\Debug\PowerHouse.pdb
-C:\Users\Wanga Kanjala\source\repos\PowerHouse\PowerHouse\bin\Debug\Bunifu.UI.WinForms.BunifuButton.xml
-C:\Users\Wanga Kanjala\source\repos\PowerHouse\PowerHouse\bin\Debug\Bunifu.UI.WinForms.BunifuLabel.xml
 C:\Users\Wanga Kanjala\source\repos\PowerHouse\PowerHouse\bin\Debug\Bunifu.UI.WinForms.BunifuProgressBar.xml
 C:\Users\Wanga Kanjala\source\repos\PowerHouse\PowerHouse\obj\Debug\PowerHouse.csprojAssemblyReference.cache
 C:\Users\Wanga Kanjala\source\repos\PowerHouse\PowerHouse\obj\Debug\PowerHouse.Home.resources
