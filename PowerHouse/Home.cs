@@ -10,9 +10,8 @@ using System.Windows.Forms;
 
 namespace PowerHouse
 {
-    public partial class Home : Form
+    public partial class Home : MetroFramework.Forms.MetroForm
     {
-        TabControl dynamicTabControl = new TabControl();
         public Home()
         {
             InitializeComponent();
@@ -24,8 +23,8 @@ namespace PowerHouse
             float fram = pRAM.NextValue();
             bunifuProgressBarCPU.Value = (int)fcpu;
             bunifuProgressBarRAM.Value = (int)fram;
-            //lblCPU.Text = string.Format("{0:0.00}%", fcpu);
-            //lblRAM.Text = string.Format("{0:0.00}%", fram);
+            lblCPU.Text = string.Format("{0:0.00}%", fcpu);
+            lblRAM.Text = string.Format("{0:0.00}%", fram);
             chart_cpu.Series["CPU"].Points.AddY(fcpu);
             chart_ram.Series["RAM"].Points.AddY(fram);
         }

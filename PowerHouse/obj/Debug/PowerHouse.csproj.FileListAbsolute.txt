@@ -30,7 +30,3 @@ C:\Users\Wanga Kanjala\source\repos\PowerHouse\PowerHouse\obj\Debug\PowerHouse.c
 C:\Users\Wanga Kanjala\source\repos\PowerHouse\PowerHouse\obj\Debug\PowerHouse.exe.licenses
 C:\Users\Wanga Kanjala\source\repos\PowerHouse\PowerHouse\obj\Debug\PowerHouse.csproj.CoreCompileInputs.cache
 C:\Users\Wanga Kanjala\source\repos\PowerHouse\PowerHouse\obj\Debug\PowerHouse.csproj.CopyComplete
-C:\Users\Wanga Kanjala\source\repos\PowerHouse\PowerHouse\bin\Debug\MaterialSkin.dll
-C:\Users\Wanga Kanjala\source\repos\PowerHouse\PowerHouse\bin\Debug\MetroFramework.Design.dll
-C:\Users\Wanga Kanjala\source\repos\PowerHouse\PowerHouse\bin\Debug\MetroFramework.dll
-C:\Users\Wanga Kanjala\source\repos\PowerHouse\PowerHouse\bin\Debug\MetroFramework.Fonts.dll
