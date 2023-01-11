@@ -20,13 +20,13 @@ namespace PowerHouse
         {
             float fcpu = pCPU.NextValue();
             float fram = pRAM.NextValue();
-            float fdisk =pDISK.NextValue();
+            float fdisk = pDISK.NextValue();
 
             progress_cpu.Value = (int)fcpu;
             progress_ram.Value = (int)fram;
             try
             {
-                progress_disk.Value = (int)Math.Round((int)fdisk/ BytesInMB);
+                progress_disk.Value = (int)Math.Round((int)fdisk / BytesInMB);
             }
             catch (Exception ex)
             {
@@ -39,6 +39,7 @@ namespace PowerHouse
 
             chart_cpu.Series["CPU"].Points.AddY(fcpu);
             chart_ram.Series["RAM"].Points.AddY(fram);
+            chart_disk.Series["DISK"].Points.AddY(Math.Round(fdisk / BytesInMB));
         }
         
         private void Home_Load(object sender, EventArgs e)
