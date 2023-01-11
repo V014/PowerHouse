@@ -9,4 +9,4 @@ A few kernal classes was called to pull required data, a couple of charts and pr
 ![Alt text of the image](https://github.com/V014/PowerHouse/blob/main/screenshots/powerhouse-ram.png)
 
 ## DISK statistics show their activity when transfering media.
-![Alt text of the image](https://github.com/V014/PowerHouse/blob/main/screenshots/powerhouse-disk.png)
+![Alt text of the image](https://github.com/V014/PowerHouse/blob/main/screenshots/powerhouse-storage.png)
