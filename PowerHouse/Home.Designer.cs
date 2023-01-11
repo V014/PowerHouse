@@ -48,20 +48,35 @@
             this.lbl_cpu_stat = new System.Windows.Forms.Label();
             this.lbl_ram_stat = new System.Windows.Forms.Label();
             this.tab_main = new System.Windows.Forms.TabControl();
+            this.apps = new System.Windows.Forms.TabPage();
+            this.list_processes = new System.Windows.Forms.ListBox();
+            this.menu_processes = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.close = new System.Windows.Forms.ToolStripMenuItem();
             this.cpu = new System.Windows.Forms.TabPage();
             this.ram = new System.Windows.Forms.TabPage();
+            this.storage = new System.Windows.Forms.TabPage();
+            this.lbl_drive_letter = new System.Windows.Forms.Label();
+            this.lbl_drive_format = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.lbl_size = new System.Windows.Forms.Label();
+            this.battery = new System.Windows.Forms.TabPage();
             this.panel_main = new System.Windows.Forms.Panel();
-            this.apps = new System.Windows.Forms.TabPage();
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.lbl_disk = new System.Windows.Forms.Label();
+            this.progress_disk = new Bunifu.UI.WinForms.BunifuProgressBar();
+            this.lbl_disk_stat = new System.Windows.Forms.Label();
+            this.pDISK = new System.Diagnostics.PerformanceCounter();
             ((System.ComponentModel.ISupportInitialize)(this.pRAM)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pCPU)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart_cpu)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart_ram)).BeginInit();
             this.tab_main.SuspendLayout();
+            this.apps.SuspendLayout();
+            this.menu_processes.SuspendLayout();
             this.cpu.SuspendLayout();
             this.ram.SuspendLayout();
+            this.storage.SuspendLayout();
             this.panel_main.SuspendLayout();
-            this.apps.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pDISK)).BeginInit();
             this.SuspendLayout();
             // 
             // pRAM
@@ -142,7 +157,9 @@
             chartArea3.AxisX.LogarithmBase = 5D;
             chartArea3.AxisY.LabelAutoFitMaxFontSize = 8;
             chartArea3.AxisY.LineColor = System.Drawing.Color.Gray;
+            chartArea3.AxisY.Maximum = 100D;
             chartArea3.Name = "ChartArea1";
+            chartArea3.ShadowOffset = 6;
             this.chart_cpu.ChartAreas.Add(chartArea3);
             this.chart_cpu.Dock = System.Windows.Forms.DockStyle.Fill;
             legend3.Enabled = false;
@@ -172,8 +189,10 @@
             chartArea4.AxisX.LabelStyle.ForeColor = System.Drawing.Color.Gray;
             chartArea4.AxisX.ScaleBreakStyle.LineColor = System.Drawing.Color.Empty;
             chartArea4.AxisX.TitleForeColor = System.Drawing.Color.Empty;
-            chartArea4.AxisY.IsMarginVisible = false;
+            chartArea4.AxisY.Maximum = 100D;
+            chartArea4.AxisY.Minimum = 0D;
             chartArea4.Name = "ChartArea1";
+            chartArea4.ShadowOffset = 6;
             this.chart_ram.ChartAreas.Add(chartArea4);
             this.chart_ram.Dock = System.Windows.Forms.DockStyle.Fill;
             legend4.Enabled = false;
@@ -234,12 +253,49 @@
             this.tab_main.Controls.Add(this.apps);
             this.tab_main.Controls.Add(this.cpu);
             this.tab_main.Controls.Add(this.ram);
+            this.tab_main.Controls.Add(this.storage);
+            this.tab_main.Controls.Add(this.battery);
             this.tab_main.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.tab_main.Location = new System.Drawing.Point(0, 93);
+            this.tab_main.Location = new System.Drawing.Point(0, 138);
             this.tab_main.Name = "tab_main";
             this.tab_main.SelectedIndex = 0;
-            this.tab_main.Size = new System.Drawing.Size(344, 308);
+            this.tab_main.Size = new System.Drawing.Size(360, 308);
             this.tab_main.TabIndex = 21;
+            // 
+            // apps
+            // 
+            this.apps.Controls.Add(this.list_processes);
+            this.apps.Location = new System.Drawing.Point(4, 22);
+            this.apps.Name = "apps";
+            this.apps.Size = new System.Drawing.Size(352, 282);
+            this.apps.TabIndex = 2;
+            this.apps.Text = "Apps";
+            this.apps.UseVisualStyleBackColor = true;
+            // 
+            // list_processes
+            // 
+            this.list_processes.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.list_processes.ContextMenuStrip = this.menu_processes;
+            this.list_processes.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.list_processes.FormattingEnabled = true;
+            this.list_processes.Location = new System.Drawing.Point(0, 0);
+            this.list_processes.Name = "list_processes";
+            this.list_processes.Size = new System.Drawing.Size(352, 282);
+            this.list_processes.TabIndex = 0;
+            // 
+            // menu_processes
+            // 
+            this.menu_processes.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.close});
+            this.menu_processes.Name = "menu_processes";
+            this.menu_processes.Size = new System.Drawing.Size(129, 26);
+            // 
+            // close
+            // 
+            this.close.Name = "close";
+            this.close.Size = new System.Drawing.Size(128, 22);
+            this.close.Text = "Close App";
+            this.close.Click += new System.EventHandler(this.Close_Click);
             // 
             // cpu
             // 
@@ -263,10 +319,75 @@
             this.ram.Text = "RAM";
             this.ram.UseVisualStyleBackColor = true;
             // 
+            // storage
+            // 
+            this.storage.Controls.Add(this.lbl_drive_letter);
+            this.storage.Controls.Add(this.lbl_drive_format);
+            this.storage.Controls.Add(this.label1);
+            this.storage.Controls.Add(this.lbl_size);
+            this.storage.Location = new System.Drawing.Point(4, 22);
+            this.storage.Name = "storage";
+            this.storage.Size = new System.Drawing.Size(336, 282);
+            this.storage.TabIndex = 3;
+            this.storage.Text = "Storage";
+            this.storage.UseVisualStyleBackColor = true;
+            // 
+            // lbl_drive_letter
+            // 
+            this.lbl_drive_letter.AutoSize = true;
+            this.lbl_drive_letter.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_drive_letter.Location = new System.Drawing.Point(61, 10);
+            this.lbl_drive_letter.Name = "lbl_drive_letter";
+            this.lbl_drive_letter.Size = new System.Drawing.Size(41, 16);
+            this.lbl_drive_letter.TabIndex = 0;
+            this.lbl_drive_letter.Text = "Letter";
+            // 
+            // lbl_drive_format
+            // 
+            this.lbl_drive_format.AutoSize = true;
+            this.lbl_drive_format.Font = new System.Drawing.Font("Roboto", 10F, System.Drawing.FontStyle.Bold);
+            this.lbl_drive_format.Location = new System.Drawing.Point(278, 9);
+            this.lbl_drive_format.Name = "lbl_drive_format";
+            this.lbl_drive_format.Size = new System.Drawing.Size(54, 17);
+            this.lbl_drive_format.TabIndex = 0;
+            this.lbl_drive_format.Text = "Format";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(8, 10);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(59, 15);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Storage: ";
+            // 
+            // lbl_size
+            // 
+            this.lbl_size.AutoSize = true;
+            this.lbl_size.Font = new System.Drawing.Font("Roboto", 32F, System.Drawing.FontStyle.Bold);
+            this.lbl_size.Location = new System.Drawing.Point(8, 37);
+            this.lbl_size.Name = "lbl_size";
+            this.lbl_size.Size = new System.Drawing.Size(104, 52);
+            this.lbl_size.TabIndex = 0;
+            this.lbl_size.Text = "0GB";
+            // 
+            // battery
+            // 
+            this.battery.Location = new System.Drawing.Point(4, 22);
+            this.battery.Name = "battery";
+            this.battery.Size = new System.Drawing.Size(336, 282);
+            this.battery.TabIndex = 4;
+            this.battery.Text = "Battery";
+            this.battery.UseVisualStyleBackColor = true;
+            // 
             // panel_main
             // 
+            this.panel_main.Controls.Add(this.lbl_disk);
             this.panel_main.Controls.Add(this.lbl_ram);
             this.panel_main.Controls.Add(this.progress_cpu);
+            this.panel_main.Controls.Add(this.progress_disk);
+            this.panel_main.Controls.Add(this.lbl_disk_stat);
             this.panel_main.Controls.Add(this.progress_ram);
             this.panel_main.Controls.Add(this.lbl_ram_stat);
             this.panel_main.Controls.Add(this.lbl_cpu);
@@ -274,51 +395,87 @@
             this.panel_main.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel_main.Location = new System.Drawing.Point(0, 0);
             this.panel_main.Name = "panel_main";
-            this.panel_main.Size = new System.Drawing.Size(344, 93);
+            this.panel_main.Size = new System.Drawing.Size(360, 138);
             this.panel_main.TabIndex = 22;
             // 
-            // apps
+            // lbl_disk
             // 
-            this.apps.Controls.Add(this.listBox1);
-            this.apps.Location = new System.Drawing.Point(4, 22);
-            this.apps.Name = "apps";
-            this.apps.Size = new System.Drawing.Size(336, 282);
-            this.apps.TabIndex = 2;
-            this.apps.Text = "Apps";
-            this.apps.UseVisualStyleBackColor = true;
+            this.lbl_disk.AutoSize = true;
+            this.lbl_disk.Location = new System.Drawing.Point(3, 105);
+            this.lbl_disk.Name = "lbl_disk";
+            this.lbl_disk.Size = new System.Drawing.Size(35, 13);
+            this.lbl_disk.TabIndex = 20;
+            this.lbl_disk.Text = "DISK:";
             // 
-            // listBox1
+            // progress_disk
             // 
-            this.listBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(0, 0);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(336, 282);
-            this.listBox1.TabIndex = 0;
+            this.progress_disk.AllowAnimations = false;
+            this.progress_disk.Animation = 0;
+            this.progress_disk.AnimationSpeed = 220;
+            this.progress_disk.AnimationStep = 10;
+            this.progress_disk.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(223)))), ((int)(((byte)(223)))));
+            this.progress_disk.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("progress_disk.BackgroundImage")));
+            this.progress_disk.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(223)))), ((int)(((byte)(223)))));
+            this.progress_disk.BorderRadius = 9;
+            this.progress_disk.BorderThickness = 1;
+            this.progress_disk.Location = new System.Drawing.Point(41, 105);
+            this.progress_disk.Maximum = 100;
+            this.progress_disk.MaximumValue = 100;
+            this.progress_disk.Minimum = 0;
+            this.progress_disk.MinimumValue = 0;
+            this.progress_disk.Name = "progress_disk";
+            this.progress_disk.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            this.progress_disk.ProgressBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(223)))), ((int)(((byte)(223)))));
+            this.progress_disk.ProgressColorLeft = System.Drawing.Color.DodgerBlue;
+            this.progress_disk.ProgressColorRight = System.Drawing.Color.DodgerBlue;
+            this.progress_disk.Size = new System.Drawing.Size(245, 13);
+            this.progress_disk.TabIndex = 17;
+            this.progress_disk.Value = 10;
+            this.progress_disk.ValueByTransition = 10;
+            // 
+            // lbl_disk_stat
+            // 
+            this.lbl_disk_stat.AutoSize = true;
+            this.lbl_disk_stat.Location = new System.Drawing.Point(292, 105);
+            this.lbl_disk_stat.Name = "lbl_disk_stat";
+            this.lbl_disk_stat.Size = new System.Drawing.Size(21, 13);
+            this.lbl_disk_stat.TabIndex = 20;
+            this.lbl_disk_stat.Text = "0%";
+            // 
+            // pDISK
+            // 
+            this.pDISK.CategoryName = "PhysicalDisk";
+            this.pDISK.CounterName = "Disk Write Bytes/sec";
+            this.pDISK.InstanceName = "_Total";
             // 
             // Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(344, 401);
+            this.ClientSize = new System.Drawing.Size(360, 446);
             this.Controls.Add(this.panel_main);
             this.Controls.Add(this.tab_main);
             this.MaximizeBox = false;
             this.MinimumSize = new System.Drawing.Size(360, 440);
             this.Name = "Home";
             this.Text = "PowerHouse";
+            this.TopMost = true;
             this.Load += new System.EventHandler(this.Home_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pRAM)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pCPU)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart_cpu)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart_ram)).EndInit();
             this.tab_main.ResumeLayout(false);
+            this.apps.ResumeLayout(false);
+            this.menu_processes.ResumeLayout(false);
             this.cpu.ResumeLayout(false);
             this.ram.ResumeLayout(false);
+            this.storage.ResumeLayout(false);
+            this.storage.PerformLayout();
             this.panel_main.ResumeLayout(false);
             this.panel_main.PerformLayout();
-            this.apps.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pDISK)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -341,7 +498,19 @@
         private System.Windows.Forms.TabPage ram;
         private System.Windows.Forms.Panel panel_main;
         private System.Windows.Forms.TabPage apps;
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.ListBox list_processes;
+        private System.Windows.Forms.ContextMenuStrip menu_processes;
+        private System.Windows.Forms.ToolStripMenuItem close;
+        private System.Windows.Forms.TabPage storage;
+        private System.Windows.Forms.TabPage battery;
+        private System.Windows.Forms.Label lbl_size;
+        private System.Windows.Forms.Label lbl_drive_letter;
+        private System.Windows.Forms.Label lbl_drive_format;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lbl_disk;
+        private Bunifu.UI.WinForms.BunifuProgressBar progress_disk;
+        private System.Windows.Forms.Label lbl_disk_stat;
+        private System.Diagnostics.PerformanceCounter pDISK;
     }
 }
 

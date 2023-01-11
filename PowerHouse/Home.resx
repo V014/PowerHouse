@@ -147,4 +147,20 @@
         6mn9b0nwhu66H+cYkphMBxwdAAAAAElFTkSuQmCC
 </value>
   </data>
+  <metadata name="menu_processes.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>263, 18</value>
+  </metadata>
+  <data name="progress_disk.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAPUAAAANCAYAAABxcCgRAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAADfSURBVGhD7dqxCQJBEIXhK8MSDA0twcjYJizALozsxNQW
+        7GCvAE9EAxMDfQsDc3dMAbPyP/jYw5kNH6dgRwj54/R9vyulXHV+AeRUOyonPS+sunG0dNHSc3wZQGqD
+        eru1Ck+jwV5ewSUAiam3d51Lq7JHgzJfBtAG1fdsVfZEiwDaoFK/rcqeaBFAO6zKnmgJQDusyh59eJsv
+        AWiDvn5/rMqe+kM7WgaQn/p7tSp7NFhpMMyXAeSm3j50bqzK02hwsIXwMoBcrK9Hq3AcLazrq3x8EUA+
+        6mn9b0nwhu66H+cYkphMBxwdAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <metadata name="pDISK.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>404, 18</value>
+  </metadata>
 </root>
