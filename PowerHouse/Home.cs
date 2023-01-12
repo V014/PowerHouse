@@ -1,9 +1,12 @@
 ﻿using System;
 using System.IO;
 using System.Data;
-using System.Diagnostics;
 using System.Drawing;
+using System.Management;
 using System.Windows.Forms;
+using System.Diagnostics;
+using System.Text;
+using System.Runtime.InteropServices;
 
 namespace PowerHouse
 {
@@ -14,9 +17,60 @@ namespace PowerHouse
         public Home()
         {
             InitializeComponent();
+            timer.Start();
+            Load_processes();
+            Storage_info();
+            Cpu_info();
+            Os_info();
         }
 
-        private void timer_Tick(object sender, EventArgs e)
+        private void Os_info()
+        {
+            var os = Environment.OSVersion;
+            StringBuilder sb = new StringBuilder(String.Empty);
+            //sb.AppendLine("Operation System Information");
+            //sb.AppendLine("----------------------------");
+            //sb.AppendLine(String.Format("Name = {0}", os.Version.Revision));
+            //sb.AppendLine(String.Format("Edition = {0}", OSVersionInfo.Edition));
+            //if (OSVersionInfo.ServicePack != string.Empty)
+            //    sb.AppendLine(String.Format("Service Pack = {0}", OSVersionInfo.ServicePack));
+            //else
+            //    sb.AppendLine("Service Pack = None");
+            //sb.AppendLine(String.Format("Version = {0}", OSVersionInfo.VersionString));
+            //sb.AppendLine(String.Format("ProcessorBits = {0}", OSVersionInfo.ProcessorBits));
+            //sb.AppendLine(String.Format("OSBits = {0}", OSVersionInfo.OSBits));
+            //sb.AppendLine(String.Format("ProgramBits = {0}", OSVersionInfo.ProgramBits));
+
+            lbl_os_info.Text = sb.ToString();
+        }
+
+        private void Cpu_info()
+        {
+            // call classes to pull cpu name
+            SelectQuery Sq = new SelectQuery("Win32_Processor");
+            ManagementObjectSearcher objOSDetails = new ManagementObjectSearcher(Sq);
+            ManagementObjectCollection osDetailsCollection = objOSDetails.Get();
+            StringBuilder sb = new StringBuilder();
+
+            foreach (ManagementObject mo in osDetailsCollection)
+            {
+                sb.AppendLine(string.Format("Name : {0}", (string)mo["Name"]));
+                sb.AppendLine(string.Format("Physical Cores : {0}", mo["NumberOfCores"]).ToString());
+                sb.AppendLine(string.Format("Logical Processors : {0}", mo["NumberOfLogicalProcessors"]).ToString());
+                sb.AppendLine(string.Format("Status : {0}", (string)mo["Status"]));
+                sb.AppendLine(string.Format("Architecture : {0}", "x" + (ushort)mo["DataWidth"]));
+            }
+            try
+            {
+                lbl_cpu_model.Text = sb.ToString();
+            }
+            catch (Exception)
+            {
+                lbl_cpu_model.Text = "Processor Model unknow";
+            }
+        }
+
+        private void Timer_Tick(object sender, EventArgs e)
         {
             float fcpu = pCPU.NextValue();
             float fram = pRAM.NextValue();
@@ -33,23 +87,16 @@ namespace PowerHouse
                 MessageBox.Show(ex.ToString());
             }
 
-            lbl_cpu_stat.Text = string.Format("{0:0.00}%", fcpu);
-            lbl_ram_stat.Text = string.Format("{0:0.00}%", fram);
+            lbl_cpu_stat.Text = string.Format("{0:0}%", fcpu);
+            lbl_ram_stat.Text = string.Format("{0:0}%", fram);
             lbl_disk_stat.Text = string.Format("{0:} MB", Math.Round((fdisk / BytesInMB), 1));
 
             chart_cpu.Series["CPU"].Points.AddY(fcpu);
             chart_ram.Series["RAM"].Points.AddY(fram);
             chart_disk.Series["DISK"].Points.AddY(Math.Round(fdisk / BytesInMB));
         }
-        
-        private void Home_Load(object sender, EventArgs e)
-        {
-            timer.Start();
-            load_processes();
-            Storage_info();
-        }
 
-        private void load_processes()
+        private void Load_processes()
         {
             list_processes.Items.Clear();
             Process[] processes = Process.GetProcesses();
@@ -75,7 +122,7 @@ namespace PowerHouse
                 try
                 {
                     process.Kill();
-                    load_processes();
+                    Load_processes();
                 }
                 catch (Exception)
                 {

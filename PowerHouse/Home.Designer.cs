@@ -30,15 +30,15 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Home));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend5 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea6 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend6 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.pRAM = new System.Diagnostics.PerformanceCounter();
             this.pCPU = new System.Diagnostics.PerformanceCounter();
             this.timer = new System.Windows.Forms.Timer(this.components);
@@ -51,13 +51,17 @@
             this.lbl_cpu_stat = new System.Windows.Forms.Label();
             this.lbl_ram_stat = new System.Windows.Forms.Label();
             this.tab_main = new System.Windows.Forms.TabControl();
+            this.computer = new System.Windows.Forms.TabPage();
+            this.lbl_os_info = new System.Windows.Forms.Label();
             this.apps = new System.Windows.Forms.TabPage();
             this.list_processes = new System.Windows.Forms.ListBox();
             this.menu_processes = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.close = new System.Windows.Forms.ToolStripMenuItem();
             this.cpu = new System.Windows.Forms.TabPage();
+            this.lbl_cpu_model = new System.Windows.Forms.Label();
             this.ram = new System.Windows.Forms.TabPage();
             this.storage = new System.Windows.Forms.TabPage();
+            this.chart_disk = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.lbl_drive_letter = new System.Windows.Forms.Label();
             this.lbl_drive_format = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -68,20 +72,20 @@
             this.progress_disk = new Bunifu.UI.WinForms.BunifuProgressBar();
             this.lbl_disk_stat = new System.Windows.Forms.Label();
             this.pDISK = new System.Diagnostics.PerformanceCounter();
-            this.chart_disk = new System.Windows.Forms.DataVisualization.Charting.Chart();
             ((System.ComponentModel.ISupportInitialize)(this.pRAM)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pCPU)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart_cpu)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart_ram)).BeginInit();
             this.tab_main.SuspendLayout();
+            this.computer.SuspendLayout();
             this.apps.SuspendLayout();
             this.menu_processes.SuspendLayout();
             this.cpu.SuspendLayout();
             this.ram.SuspendLayout();
             this.storage.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chart_disk)).BeginInit();
             this.panel_main.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pDISK)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chart_disk)).BeginInit();
             this.SuspendLayout();
             // 
             // pRAM
@@ -98,7 +102,7 @@
             // timer
             // 
             this.timer.Interval = 1000;
-            this.timer.Tick += new System.EventHandler(this.timer_Tick);
+            this.timer.Tick += new System.EventHandler(this.Timer_Tick);
             // 
             // progress_cpu
             // 
@@ -156,31 +160,31 @@
             // 
             this.chart_cpu.BackColor = System.Drawing.Color.Transparent;
             this.chart_cpu.BorderSkin.BorderColor = System.Drawing.Color.Transparent;
-            chartArea1.AxisX.IsMarginVisible = false;
-            chartArea1.AxisX.LabelStyle.Enabled = false;
-            chartArea1.AxisX.LineColor = System.Drawing.Color.Gray;
-            chartArea1.AxisX.LogarithmBase = 5D;
-            chartArea1.AxisY.LabelAutoFitMaxFontSize = 8;
-            chartArea1.AxisY.LineColor = System.Drawing.Color.Gray;
-            chartArea1.AxisY.Maximum = 100D;
-            chartArea1.Name = "ChartArea1";
-            chartArea1.ShadowOffset = 6;
-            this.chart_cpu.ChartAreas.Add(chartArea1);
-            this.chart_cpu.Dock = System.Windows.Forms.DockStyle.Fill;
-            legend1.Enabled = false;
-            legend1.Name = "Legend1";
-            this.chart_cpu.Legends.Add(legend1);
-            this.chart_cpu.Location = new System.Drawing.Point(3, 3);
+            chartArea4.AxisX.IsMarginVisible = false;
+            chartArea4.AxisX.LabelStyle.Enabled = false;
+            chartArea4.AxisX.LineColor = System.Drawing.Color.Gray;
+            chartArea4.AxisX.LogarithmBase = 5D;
+            chartArea4.AxisY.LabelAutoFitMaxFontSize = 8;
+            chartArea4.AxisY.LineColor = System.Drawing.Color.Gray;
+            chartArea4.AxisY.Maximum = 100D;
+            chartArea4.Name = "ChartArea1";
+            chartArea4.ShadowOffset = 6;
+            this.chart_cpu.ChartAreas.Add(chartArea4);
+            this.chart_cpu.Dock = System.Windows.Forms.DockStyle.Bottom;
+            legend4.Enabled = false;
+            legend4.Name = "Legend1";
+            this.chart_cpu.Legends.Add(legend4);
+            this.chart_cpu.Location = new System.Drawing.Point(3, 101);
             this.chart_cpu.Name = "chart_cpu";
             this.chart_cpu.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Excel;
-            series1.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.DiagonalLeft;
-            series1.BorderColor = System.Drawing.Color.MediumSlateBlue;
-            series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Area;
-            series1.Legend = "Legend1";
-            series1.Name = "CPU";
-            this.chart_cpu.Series.Add(series1);
-            this.chart_cpu.Size = new System.Drawing.Size(346, 276);
+            series4.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.DiagonalLeft;
+            series4.BorderColor = System.Drawing.Color.MediumSlateBlue;
+            series4.ChartArea = "ChartArea1";
+            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Area;
+            series4.Legend = "Legend1";
+            series4.Name = "CPU";
+            this.chart_cpu.Series.Add(series4);
+            this.chart_cpu.Size = new System.Drawing.Size(346, 178);
             this.chart_cpu.TabIndex = 18;
             this.chart_cpu.Text = "chart1";
             // 
@@ -188,31 +192,31 @@
             // 
             this.chart_ram.BorderlineColor = System.Drawing.Color.Transparent;
             this.chart_ram.BorderSkin.BorderColor = System.Drawing.Color.Transparent;
-            chartArea2.AxisX.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.True;
-            chartArea2.AxisX.IsMarginVisible = false;
-            chartArea2.AxisX.LabelStyle.Enabled = false;
-            chartArea2.AxisX.LabelStyle.ForeColor = System.Drawing.Color.Gray;
-            chartArea2.AxisX.ScaleBreakStyle.LineColor = System.Drawing.Color.Empty;
-            chartArea2.AxisX.TitleForeColor = System.Drawing.Color.Empty;
-            chartArea2.AxisY.Maximum = 100D;
-            chartArea2.AxisY.Minimum = 0D;
-            chartArea2.Name = "ChartArea1";
-            chartArea2.ShadowOffset = 6;
-            this.chart_ram.ChartAreas.Add(chartArea2);
+            chartArea5.AxisX.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.True;
+            chartArea5.AxisX.IsMarginVisible = false;
+            chartArea5.AxisX.LabelStyle.Enabled = false;
+            chartArea5.AxisX.LabelStyle.ForeColor = System.Drawing.Color.Gray;
+            chartArea5.AxisX.ScaleBreakStyle.LineColor = System.Drawing.Color.Empty;
+            chartArea5.AxisX.TitleForeColor = System.Drawing.Color.Empty;
+            chartArea5.AxisY.Maximum = 100D;
+            chartArea5.AxisY.Minimum = 0D;
+            chartArea5.Name = "ChartArea1";
+            chartArea5.ShadowOffset = 6;
+            this.chart_ram.ChartAreas.Add(chartArea5);
             this.chart_ram.Dock = System.Windows.Forms.DockStyle.Fill;
-            legend2.Enabled = false;
-            legend2.Name = "Legend1";
-            this.chart_ram.Legends.Add(legend2);
+            legend5.Enabled = false;
+            legend5.Name = "Legend1";
+            this.chart_ram.Legends.Add(legend5);
             this.chart_ram.Location = new System.Drawing.Point(3, 3);
             this.chart_ram.Name = "chart_ram";
             this.chart_ram.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SemiTransparent;
-            series2.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.DiagonalLeft;
-            series2.BorderColor = System.Drawing.Color.Red;
-            series2.ChartArea = "ChartArea1";
-            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Area;
-            series2.Legend = "Legend1";
-            series2.Name = "RAM";
-            this.chart_ram.Series.Add(series2);
+            series5.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.DiagonalLeft;
+            series5.BorderColor = System.Drawing.Color.Red;
+            series5.ChartArea = "ChartArea1";
+            series5.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Area;
+            series5.Legend = "Legend1";
+            series5.Name = "RAM";
+            this.chart_ram.Series.Add(series5);
             this.chart_ram.Size = new System.Drawing.Size(346, 276);
             this.chart_ram.TabIndex = 18;
             this.chart_ram.Text = "chart1";
@@ -255,6 +259,7 @@
             // 
             // tab_main
             // 
+            this.tab_main.Controls.Add(this.computer);
             this.tab_main.Controls.Add(this.apps);
             this.tab_main.Controls.Add(this.cpu);
             this.tab_main.Controls.Add(this.ram);
@@ -266,6 +271,25 @@
             this.tab_main.SelectedIndex = 0;
             this.tab_main.Size = new System.Drawing.Size(360, 308);
             this.tab_main.TabIndex = 21;
+            // 
+            // computer
+            // 
+            this.computer.Controls.Add(this.lbl_os_info);
+            this.computer.Location = new System.Drawing.Point(4, 22);
+            this.computer.Name = "computer";
+            this.computer.Size = new System.Drawing.Size(352, 282);
+            this.computer.TabIndex = 5;
+            this.computer.Text = "Computer";
+            this.computer.UseVisualStyleBackColor = true;
+            // 
+            // lbl_os_info
+            // 
+            this.lbl_os_info.AutoSize = true;
+            this.lbl_os_info.Location = new System.Drawing.Point(8, 9);
+            this.lbl_os_info.Name = "lbl_os_info";
+            this.lbl_os_info.Size = new System.Drawing.Size(125, 13);
+            this.lbl_os_info.TabIndex = 0;
+            this.lbl_os_info.Text = "Operating System Details";
             // 
             // apps
             // 
@@ -279,6 +303,7 @@
             // 
             // list_processes
             // 
+            this.list_processes.BackColor = System.Drawing.SystemColors.Control;
             this.list_processes.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.list_processes.ContextMenuStrip = this.menu_processes;
             this.list_processes.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -304,6 +329,7 @@
             // 
             // cpu
             // 
+            this.cpu.Controls.Add(this.lbl_cpu_model);
             this.cpu.Controls.Add(this.chart_cpu);
             this.cpu.Location = new System.Drawing.Point(4, 22);
             this.cpu.Name = "cpu";
@@ -312,6 +338,16 @@
             this.cpu.TabIndex = 0;
             this.cpu.Text = "CPU";
             this.cpu.UseVisualStyleBackColor = true;
+            // 
+            // lbl_cpu_model
+            // 
+            this.lbl_cpu_model.AutoSize = true;
+            this.lbl_cpu_model.Font = new System.Drawing.Font("Roboto", 9F);
+            this.lbl_cpu_model.Location = new System.Drawing.Point(8, 12);
+            this.lbl_cpu_model.Name = "lbl_cpu_model";
+            this.lbl_cpu_model.Size = new System.Drawing.Size(27, 14);
+            this.lbl_cpu_model.TabIndex = 19;
+            this.lbl_cpu_model.Text = "cpu";
             // 
             // ram
             // 
@@ -337,6 +373,38 @@
             this.storage.TabIndex = 3;
             this.storage.Text = "Storage";
             this.storage.UseVisualStyleBackColor = true;
+            // 
+            // chart_disk
+            // 
+            this.chart_disk.BackColor = System.Drawing.Color.Transparent;
+            this.chart_disk.BorderSkin.BorderColor = System.Drawing.Color.Transparent;
+            chartArea6.AxisX.IsMarginVisible = false;
+            chartArea6.AxisX.LabelStyle.Enabled = false;
+            chartArea6.AxisX.LineColor = System.Drawing.Color.Gray;
+            chartArea6.AxisX.LogarithmBase = 5D;
+            chartArea6.AxisY.LabelAutoFitMaxFontSize = 8;
+            chartArea6.AxisY.LineColor = System.Drawing.Color.Gray;
+            chartArea6.AxisY.Maximum = 100D;
+            chartArea6.Name = "ChartArea1";
+            chartArea6.ShadowOffset = 6;
+            this.chart_disk.ChartAreas.Add(chartArea6);
+            this.chart_disk.Dock = System.Windows.Forms.DockStyle.Bottom;
+            legend6.Enabled = false;
+            legend6.Name = "Legend1";
+            this.chart_disk.Legends.Add(legend6);
+            this.chart_disk.Location = new System.Drawing.Point(0, 92);
+            this.chart_disk.Name = "chart_disk";
+            this.chart_disk.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Excel;
+            series6.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.DiagonalLeft;
+            series6.BorderColor = System.Drawing.Color.MediumSlateBlue;
+            series6.ChartArea = "ChartArea1";
+            series6.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Area;
+            series6.Legend = "Legend1";
+            series6.Name = "DISK";
+            this.chart_disk.Series.Add(series6);
+            this.chart_disk.Size = new System.Drawing.Size(352, 190);
+            this.chart_disk.TabIndex = 19;
+            this.chart_disk.Text = "chart1";
             // 
             // lbl_drive_letter
             // 
@@ -382,7 +450,7 @@
             // 
             this.battery.Location = new System.Drawing.Point(4, 22);
             this.battery.Name = "battery";
-            this.battery.Size = new System.Drawing.Size(336, 282);
+            this.battery.Size = new System.Drawing.Size(352, 282);
             this.battery.TabIndex = 4;
             this.battery.Text = "Battery";
             this.battery.UseVisualStyleBackColor = true;
@@ -454,38 +522,6 @@
             this.pDISK.CounterName = "Disk Write Bytes/sec";
             this.pDISK.InstanceName = "_Total";
             // 
-            // chart_disk
-            // 
-            this.chart_disk.BackColor = System.Drawing.Color.Transparent;
-            this.chart_disk.BorderSkin.BorderColor = System.Drawing.Color.Transparent;
-            chartArea3.AxisX.IsMarginVisible = false;
-            chartArea3.AxisX.LabelStyle.Enabled = false;
-            chartArea3.AxisX.LineColor = System.Drawing.Color.Gray;
-            chartArea3.AxisX.LogarithmBase = 5D;
-            chartArea3.AxisY.LabelAutoFitMaxFontSize = 8;
-            chartArea3.AxisY.LineColor = System.Drawing.Color.Gray;
-            chartArea3.AxisY.Maximum = 100D;
-            chartArea3.Name = "ChartArea1";
-            chartArea3.ShadowOffset = 6;
-            this.chart_disk.ChartAreas.Add(chartArea3);
-            this.chart_disk.Dock = System.Windows.Forms.DockStyle.Bottom;
-            legend3.Enabled = false;
-            legend3.Name = "Legend1";
-            this.chart_disk.Legends.Add(legend3);
-            this.chart_disk.Location = new System.Drawing.Point(0, 92);
-            this.chart_disk.Name = "chart_disk";
-            this.chart_disk.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Excel;
-            series3.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.DiagonalLeft;
-            series3.BorderColor = System.Drawing.Color.MediumSlateBlue;
-            series3.ChartArea = "ChartArea1";
-            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Area;
-            series3.Legend = "Legend1";
-            series3.Name = "DISK";
-            this.chart_disk.Series.Add(series3);
-            this.chart_disk.Size = new System.Drawing.Size(352, 190);
-            this.chart_disk.TabIndex = 19;
-            this.chart_disk.Text = "chart1";
-            // 
             // Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -499,22 +535,24 @@
             this.Name = "Home";
             this.Text = "PowerHouse";
             this.TopMost = true;
-            this.Load += new System.EventHandler(this.Home_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pRAM)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pCPU)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart_cpu)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart_ram)).EndInit();
             this.tab_main.ResumeLayout(false);
+            this.computer.ResumeLayout(false);
+            this.computer.PerformLayout();
             this.apps.ResumeLayout(false);
             this.menu_processes.ResumeLayout(false);
             this.cpu.ResumeLayout(false);
+            this.cpu.PerformLayout();
             this.ram.ResumeLayout(false);
             this.storage.ResumeLayout(false);
             this.storage.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chart_disk)).EndInit();
             this.panel_main.ResumeLayout(false);
             this.panel_main.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pDISK)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chart_disk)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -551,6 +589,9 @@
         private System.Windows.Forms.Label lbl_disk_stat;
         private System.Diagnostics.PerformanceCounter pDISK;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart_disk;
+        private System.Windows.Forms.Label lbl_cpu_model;
+        private System.Windows.Forms.TabPage computer;
+        private System.Windows.Forms.Label lbl_os_info;
     }
 }
 
