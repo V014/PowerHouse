@@ -60,13 +60,10 @@ namespace PowerHouse
                 // total virtual memory
                 FreeMemory = Convert.ToDouble(result["FreePhysicalMemory"]);
                 double FreeMemory_GB = Math.Round((FreeMemory / (1024 * 1024)), 2);
-                // usage memory
-                UsageMemory = Convert.ToDouble(result["MaxProcessMemorySize"]);
-                double UsageMemory_GB = Math.Round((UsageMemory / (1024 * 1024)), 2);
                 // append results
-                sb.AppendLine(string.Format(("Useable Memory : " + MemorySize_GB + "GB")));
-                sb.AppendLine(string.Format(("Available Memory : " + FreeMemory_GB + "GB")));
-                sb.AppendLine(string.Format(("Usage Memory : " + UsageMemory_GB + "GB")));
+                sb.AppendLine(string.Format(("Total Useable Ram : " + MemorySize_GB + "GB")));
+                sb.AppendLine(string.Format(("Used Ram : " + (MemorySize_GB - FreeMemory_GB) + "GB")));
+                sb.AppendLine(string.Format(("Available Ram : " + FreeMemory_GB + "GB")));
             }
 
             // display result
