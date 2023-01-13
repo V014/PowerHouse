@@ -1,12 +1,10 @@
 ﻿using System;
 using System.IO;
 using System.Data;
-using System.Drawing;
 using System.Management;
 using System.Windows.Forms;
 using System.Diagnostics;
 using System.Text;
-using System.Runtime.InteropServices;
 
 namespace PowerHouse
 {
@@ -14,6 +12,8 @@ namespace PowerHouse
     {
         const double BytesInMB = 1048576;
         const double BytesInGB = 1073741824;
+        
+
         public Home()
         {
             InitializeComponent();
@@ -27,19 +27,56 @@ namespace PowerHouse
 
         private void Os_info()
         {
-            string results = "unable to display OS version";
+            string path = "C:\\Windows";
+            string rootDir = Directory.GetDirectoryRoot(path);
+
+            //Get all information of Drive i.e C
+            DriveInfo driveInfo = new DriveInfo(rootDir);
+            // convert storage in byte to gb and round by 1
+            double availableFreeSpace = Math.Round((driveInfo.AvailableFreeSpace / BytesInGB), 1);
+            //curating driver stats for user
+            double totalSize = Math.Round((driveInfo.TotalSize / BytesInGB));
+            double StoragePercentage = (100 / totalSize) * availableFreeSpace;
+            double StorageUsage = 100 - Math.Round(StoragePercentage, 1);
+
+            lbl_storage_stat.Text = availableFreeSpace + " GB";
             
+            progress_storage.Value = (int)StorageUsage;
+
+            ObjectQuery wql = new ObjectQuery("SELECT * FROM Win32_OperatingSystem");
+            ManagementObjectSearcher searcher = new ManagementObjectSearcher(wql);
+            ManagementObjectCollection results = searcher.Get();
+            StringBuilder sb = new StringBuilder();
+
             try
             {
-                
+                string Version = "";
+                string Architecute = "";
+                string Build = "";
+                string DeviceName = "";
+
+                foreach (ManagementObject result in results)
+                {
+                    // total visible memory
+                    Version = (string)result["Caption"];
+                    Architecute = (string)result["OSArchitecture"];
+                    DeviceName = (string)result["CSName"];
+                    Build = (string)result["BuildNumber"];
+                    // append results
+                    sb.AppendLine(string.Format("Windows Version : " + Version));
+                    sb.AppendLine(string.Format("OS Architecture : " + Architecute));
+                    sb.AppendLine(string.Format("Device Name : " + DeviceName));
+                    sb.AppendLine(string.Format("Build Number : " + Build));
+                }
+
+                // display result
+                lbl_storage_info.Text = (sb.ToString());
             }
             catch (Exception)
             {
-
+                // display result
+                lbl_storage_info.Text = "Storage data unavailable";
             }
-            //var os = Environment.OSVersion;
-            //StringBuilder sb = new StringBuilder(String.Empty);
-            //lbl_os_info.Text = sb.ToString();
         }
 
         private void Ram_info()
@@ -48,26 +85,35 @@ namespace PowerHouse
             ManagementObjectSearcher searcher = new ManagementObjectSearcher(wql);
             ManagementObjectCollection results = searcher.Get();
             StringBuilder sb = new StringBuilder();
-            double MemorySize = 0;
-            double FreeMemory = 0;
-            double UsageMemory = 0;
 
-            foreach (ManagementObject result in results)
+            try
             {
-                // total visible memory
-                MemorySize = Convert.ToDouble(result["TotalVisibleMemorySize"]);
-                double MemorySize_GB = Math.Round((MemorySize / (1024 * 1024)), 2);
-                // total virtual memory
-                FreeMemory = Convert.ToDouble(result["FreePhysicalMemory"]);
-                double FreeMemory_GB = Math.Round((FreeMemory / (1024 * 1024)), 2);
-                // append results
-                sb.AppendLine(string.Format(("Total Useable Ram : " + MemorySize_GB + "GB")));
-                sb.AppendLine(string.Format(("Used Ram : " + (MemorySize_GB - FreeMemory_GB) + "GB")));
-                sb.AppendLine(string.Format(("Available Ram : " + FreeMemory_GB + "GB")));
-            }
+                double MemorySize = 0;
+                double FreeMemory = 0;
 
-            // display result
-            lbl_ram_info.Text = sb.ToString();
+                foreach (ManagementObject result in results)
+                {
+                    // total visible memory
+                    MemorySize = Convert.ToDouble(result["TotalVisibleMemorySize"]);
+                    double MemorySize_GB = Math.Round((MemorySize / (1024 * 1024)), 2);
+                    // total virtual memory
+                    FreeMemory = Convert.ToDouble(result["FreePhysicalMemory"]);
+                    double FreeMemory_GB = Math.Round((FreeMemory / (1024 * 1024)), 2);
+                    // append results
+                    sb.AppendLine(string.Format(("Total Useable Ram : " + MemorySize_GB + "GB")));
+                    sb.AppendLine(string.Format(("Used Ram : " + (MemorySize_GB - FreeMemory_GB) + "GB")));
+                    sb.AppendLine(string.Format(("Available Ram : " + FreeMemory_GB + "GB")));
+                }
+
+                // display result
+                lbl_ram_info.Text = sb.ToString();
+            }
+            catch (Exception)
+            {
+                // display result
+                lbl_ram_info.Text = "Ram data unavailable";
+            }
+            
         }
 
         private void Cpu_info()
@@ -160,20 +206,7 @@ namespace PowerHouse
         private void Storage_info()
         {
             
-            string path = "C:\\Windows";
-            string rootDir = Directory.GetDirectoryRoot(path);
-
-            //Get all information of Drive i.e C
-            DriveInfo driveInfo = new DriveInfo(rootDir);
-            // convert storage in byte to gb and round by 1
-            double availableFreeSpace = Math.Round((driveInfo.AvailableFreeSpace / BytesInGB), 1);
-            string driveFormat = driveInfo.DriveFormat;
-            string name = driveInfo.Name;
-            long totalSize = driveInfo.TotalSize;
-
-            lbl_drive_letter.Text = name;
-            lbl_drive_format.Text = driveFormat;
-            lbl_size.Text = availableFreeSpace.ToString() + "GB";
+            
         }
     }
 }
