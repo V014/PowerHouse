@@ -22,26 +22,55 @@ namespace PowerHouse
             Storage_info();
             Cpu_info();
             Os_info();
+            Ram_info();
         }
 
         private void Os_info()
         {
-            var os = Environment.OSVersion;
-            StringBuilder sb = new StringBuilder(String.Empty);
-            //sb.AppendLine("Operation System Information");
-            //sb.AppendLine("----------------------------");
-            //sb.AppendLine(String.Format("Name = {0}", os.Version.Revision));
-            //sb.AppendLine(String.Format("Edition = {0}", OSVersionInfo.Edition));
-            //if (OSVersionInfo.ServicePack != string.Empty)
-            //    sb.AppendLine(String.Format("Service Pack = {0}", OSVersionInfo.ServicePack));
-            //else
-            //    sb.AppendLine("Service Pack = None");
-            //sb.AppendLine(String.Format("Version = {0}", OSVersionInfo.VersionString));
-            //sb.AppendLine(String.Format("ProcessorBits = {0}", OSVersionInfo.ProcessorBits));
-            //sb.AppendLine(String.Format("OSBits = {0}", OSVersionInfo.OSBits));
-            //sb.AppendLine(String.Format("ProgramBits = {0}", OSVersionInfo.ProgramBits));
+            string results = "unable to display OS version";
+            
+            try
+            {
+                
+            }
+            catch (Exception)
+            {
 
-            lbl_os_info.Text = sb.ToString();
+            }
+            //var os = Environment.OSVersion;
+            //StringBuilder sb = new StringBuilder(String.Empty);
+            //lbl_os_info.Text = sb.ToString();
+        }
+
+        private void Ram_info()
+        {
+            ObjectQuery wql = new ObjectQuery("SELECT * FROM Win32_OperatingSystem");
+            ManagementObjectSearcher searcher = new ManagementObjectSearcher(wql);
+            ManagementObjectCollection results = searcher.Get();
+            StringBuilder sb = new StringBuilder();
+            double MemorySize = 0;
+            double FreeMemory = 0;
+            double UsageMemory = 0;
+
+            foreach (ManagementObject result in results)
+            {
+                // total visible memory
+                MemorySize = Convert.ToDouble(result["TotalVisibleMemorySize"]);
+                double MemorySize_GB = Math.Round((MemorySize / (1024 * 1024)), 2);
+                // total virtual memory
+                FreeMemory = Convert.ToDouble(result["FreePhysicalMemory"]);
+                double FreeMemory_GB = Math.Round((FreeMemory / (1024 * 1024)), 2);
+                // usage memory
+                UsageMemory = Convert.ToDouble(result["MaxProcessMemorySize"]);
+                double UsageMemory_GB = Math.Round((UsageMemory / (1024 * 1024)), 2);
+                // append results
+                sb.AppendLine(string.Format(("Useable Memory : " + MemorySize_GB + "GB")));
+                sb.AppendLine(string.Format(("Available Memory : " + FreeMemory_GB + "GB")));
+                sb.AppendLine(string.Format(("Usage Memory : " + UsageMemory_GB + "GB")));
+            }
+
+            // display result
+            lbl_ram_info.Text = sb.ToString();
         }
 
         private void Cpu_info()
