@@ -12,19 +12,40 @@ namespace PowerHouse
     {
         const double BytesInMB = 1048576;
         const double BytesInGB = 1073741824;
-        
+        private int OldFocusedIndex = 0;
 
         public Home()
         {
             InitializeComponent();
-            timer.Start();
-            Load_processes();
+            // pull stats
+            // Load_processes();
             Storage_info();
             Cpu_info();
             Os_info();
             Ram_info();
+            // set timer to auto refresh
+            Timer timerRefresh = new Timer
+            {
+                Interval = (15 * 1000) // 10 seconds
+            };
+            timerRefresh.Tick += new EventHandler(TimerRefresh_Tick);
+            // start the refresh counter
+            timerRefresh.Start();
+            // start the process counter
+            timer.Start();
         }
-
+        private void RefreshStats()
+        {
+            // load all processes
+            Load_processes();
+            // select the process last selected by the user
+            list_processes.SelectedIndex = OldFocusedIndex;
+            // load the storage
+            Storage_info();
+            // load the ram
+            Ram_info();
+        }
+        // load information about operating system
         private void Os_info()
         {
             ObjectQuery wql = new ObjectQuery("SELECT * FROM Win32_OperatingSystem");
@@ -62,31 +83,42 @@ namespace PowerHouse
                 lbl_storage_info.Text = "Storage data unavailable";
             }
         }
-
+        // load information about ram
         private void Ram_info()
         {
+            // refer to the Win32 API point to the OperatingSystem class
             ObjectQuery wql = new ObjectQuery("SELECT * FROM Win32_OperatingSystem");
             ManagementObjectSearcher searcher = new ManagementObjectSearcher(wql);
             ManagementObjectCollection results = searcher.Get();
+            // use a string bulder to stack multiple lines of results in one control
             StringBuilder sb = new StringBuilder();
 
             try
             {
+                // declare variables
                 double MemorySize = 0;
                 double FreeMemory = 0;
-
+                double VirtualMemory = 0;
+                // need to loop through the API data
                 foreach (ManagementObject result in results)
                 {
                     // total visible memory
                     MemorySize = Convert.ToDouble(result["TotalVisibleMemorySize"]);
+                    // has to be converted to bytes for user friendliness
                     double MemorySize_GB = Math.Round((MemorySize / (1024 * 1024)), 2);
                     // total virtual memory
                     FreeMemory = Convert.ToDouble(result["FreePhysicalMemory"]);
+                    // has to be converted to bytes for user friendliness
                     double FreeMemory_GB = Math.Round((FreeMemory / (1024 * 1024)), 2);
+                    // virtual memory
+                    VirtualMemory = Convert.ToDouble(result["FreeVirtualMemory"]);
+                    // convert to friendly result
+                    double VirtualMemory_GB = Math.Round((VirtualMemory / (1024 * 1024)), 2);
                     // append results
                     sb.AppendLine(string.Format(("Total Useable Ram : " + MemorySize_GB + "GB")));
                     sb.AppendLine(string.Format(("Used Ram : " + (MemorySize_GB - FreeMemory_GB) + "GB")));
                     sb.AppendLine(string.Format(("Available Ram : " + FreeMemory_GB + "GB")));
+                    sb.AppendLine(string.Format(("Virtual Memory : " + VirtualMemory_GB + "GB")));
                 }
 
                 // display result
@@ -99,7 +131,7 @@ namespace PowerHouse
             }
             
         }
-
+        // load information about the cpu
         private void Cpu_info()
         {
             // call classes to pull cpu name
@@ -125,7 +157,7 @@ namespace PowerHouse
                 lbl_cpu_model.Text = "Processor Model unknow";
             }
         }
-
+        // load active counters using the timer class
         private void Timer_Tick(object sender, EventArgs e)
         {
             try
@@ -155,7 +187,7 @@ namespace PowerHouse
                 MessageBox.Show(ex.ToString());
             }
         }
-
+        // load information about the processor
         private void Load_processes()
         {
             list_processes.Items.Clear();
@@ -175,7 +207,7 @@ namespace PowerHouse
                 }
             }
         }
-
+        // closes an application the user has pointed to
         private void Close_Click(object sender, EventArgs e)
         {
             foreach(var process in Process.GetProcessesByName(list_processes.Text)){
@@ -190,7 +222,7 @@ namespace PowerHouse
                 } 
             }
         }
-
+        // load information about the storage
         private void Storage_info()
         {
 
@@ -205,12 +237,21 @@ namespace PowerHouse
             double totalSize = Math.Round((driveInfo.TotalSize / BytesInGB));
             double StoragePercentage = (100 / totalSize) * availableFreeSpace;
             double StorageUsage = 100 - Math.Round(StoragePercentage, 1);
-
+            // append to labels
             lbl_storage_stat.Text = availableFreeSpace + " GB";
             lbl_space.Text = totalSize.ToString() + " GB";
-
+            // set progress bar level
             progress_storage.Value = (int)StorageUsage;
-
+        }
+        // pull stats every now and then
+        private void TimerRefresh_Tick(object sender, EventArgs e)
+        {
+            RefreshStats();
+        }
+        // save the current selected application
+        private void List_processes_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            OldFocusedIndex = list_processes.SelectedIndex;
         }
     }
 }
