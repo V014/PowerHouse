@@ -27,22 +27,6 @@ namespace PowerHouse
 
         private void Os_info()
         {
-            string path = "C:\\Windows";
-            string rootDir = Directory.GetDirectoryRoot(path);
-
-            //Get all information of Drive i.e C
-            DriveInfo driveInfo = new DriveInfo(rootDir);
-            // convert storage in byte to gb and round by 1
-            double availableFreeSpace = Math.Round((driveInfo.AvailableFreeSpace / BytesInGB), 1);
-            //curating driver stats for user
-            double totalSize = Math.Round((driveInfo.TotalSize / BytesInGB));
-            double StoragePercentage = (100 / totalSize) * availableFreeSpace;
-            double StorageUsage = 100 - Math.Round(StoragePercentage, 1);
-
-            lbl_storage_stat.Text = availableFreeSpace + " GB";
-            
-            progress_storage.Value = (int)StorageUsage;
-
             ObjectQuery wql = new ObjectQuery("SELECT * FROM Win32_OperatingSystem");
             ManagementObjectSearcher searcher = new ManagementObjectSearcher(wql);
             ManagementObjectCollection results = searcher.Get();
@@ -144,28 +128,32 @@ namespace PowerHouse
 
         private void Timer_Tick(object sender, EventArgs e)
         {
-            float fcpu = pCPU.NextValue();
-            float fram = pRAM.NextValue();
-            float fdisk = pDISK.NextValue();
-
-            progress_cpu.Value = (int)fcpu;
-            progress_ram.Value = (int)fram;
             try
             {
-                progress_disk.Value = (int)Math.Round((int)fdisk / BytesInMB);
+                float fcpu = pCPU.NextValue();
+                float fram = pRAM.NextValue();
+                float fwrite = pWRITE.NextValue();
+                float fread = pREAD.NextValue();
+
+                progress_cpu.Value = (int)fcpu;
+                progress_ram.Value = (int)fram;
+                progress_read.Value = (int)fread / (int)BytesInMB;
+
+                progress_write.Value = (int)Math.Round((int)fwrite / BytesInMB);
+
+                lbl_cpu_stat.Text = string.Format("{0:0}%", fcpu);
+                lbl_ram_stat.Text = string.Format("{0:0}%", fram);
+                lbl_disk_stat.Text = string.Format("{0:} MB", Math.Round((fwrite / BytesInMB), 1));
+                lbl_read_stat.Text = string.Format("{0:} MB", Math.Round((fread / BytesInMB), 1));
+
+                chart_cpu.Series["CPU"].Points.AddY(fcpu);
+                chart_ram.Series["RAM"].Points.AddY(fram);
+                chart_disk.Series["DISK"].Points.AddY(Math.Round(fwrite / BytesInMB));
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString());
             }
-
-            lbl_cpu_stat.Text = string.Format("{0:0}%", fcpu);
-            lbl_ram_stat.Text = string.Format("{0:0}%", fram);
-            lbl_disk_stat.Text = string.Format("{0:} MB", Math.Round((fdisk / BytesInMB), 1));
-
-            chart_cpu.Series["CPU"].Points.AddY(fcpu);
-            chart_ram.Series["RAM"].Points.AddY(fram);
-            chart_disk.Series["DISK"].Points.AddY(Math.Round(fdisk / BytesInMB));
         }
 
         private void Load_processes()
@@ -205,8 +193,24 @@ namespace PowerHouse
 
         private void Storage_info()
         {
-            
-            
+
+            string path = "C:\\Windows";
+            string rootDir = Directory.GetDirectoryRoot(path);
+
+            //Get all information of Drive i.e C
+            DriveInfo driveInfo = new DriveInfo(rootDir);
+            // convert storage in byte to gb and round by 1
+            double availableFreeSpace = Math.Round((driveInfo.AvailableFreeSpace / BytesInGB), 1);
+            //curating driver stats for user
+            double totalSize = Math.Round((driveInfo.TotalSize / BytesInGB));
+            double StoragePercentage = (100 / totalSize) * availableFreeSpace;
+            double StorageUsage = 100 - Math.Round(StoragePercentage, 1);
+
+            lbl_storage_stat.Text = availableFreeSpace + " GB";
+            lbl_space.Text = totalSize.ToString() + " GB";
+
+            progress_storage.Value = (int)StorageUsage;
+
         }
     }
 }

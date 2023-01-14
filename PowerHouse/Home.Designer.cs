@@ -64,13 +64,17 @@
             this.lbl_storage_info = new System.Windows.Forms.Label();
             this.battery = new System.Windows.Forms.TabPage();
             this.panel_main = new System.Windows.Forms.Panel();
-            this.lbl_disk = new System.Windows.Forms.Label();
-            this.progress_disk = new Bunifu.UI.WinForms.BunifuProgressBar();
-            this.lbl_disk_stat = new System.Windows.Forms.Label();
-            this.pDISK = new System.Diagnostics.PerformanceCounter();
-            this.lbl_storage_stat = new System.Windows.Forms.Label();
-            this.progress_storage = new Bunifu.UI.WinForms.BunifuProgressBar();
             this.lbl_space = new System.Windows.Forms.Label();
+            this.lbl_disk = new System.Windows.Forms.Label();
+            this.progress_storage = new Bunifu.UI.WinForms.BunifuProgressBar();
+            this.lbl_storage_stat = new System.Windows.Forms.Label();
+            this.progress_write = new Bunifu.UI.WinForms.BunifuProgressBar();
+            this.lbl_disk_stat = new System.Windows.Forms.Label();
+            this.pWRITE = new System.Diagnostics.PerformanceCounter();
+            this.lbl_read_stat = new System.Windows.Forms.Label();
+            this.progress_read = new Bunifu.UI.WinForms.BunifuProgressBar();
+            this.lbl_read = new System.Windows.Forms.Label();
+            this.pREAD = new System.Diagnostics.PerformanceCounter();
             ((System.ComponentModel.ISupportInitialize)(this.pRAM)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pCPU)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart_cpu)).BeginInit();
@@ -83,7 +87,8 @@
             this.storage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart_disk)).BeginInit();
             this.panel_main.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pDISK)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pWRITE)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pREAD)).BeginInit();
             this.SuspendLayout();
             // 
             // pRAM
@@ -263,10 +268,10 @@
             this.tab_main.Controls.Add(this.storage);
             this.tab_main.Controls.Add(this.battery);
             this.tab_main.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.tab_main.Location = new System.Drawing.Point(0, 184);
+            this.tab_main.Location = new System.Drawing.Point(0, 94);
             this.tab_main.Name = "tab_main";
             this.tab_main.SelectedIndex = 0;
-            this.tab_main.Size = new System.Drawing.Size(344, 296);
+            this.tab_main.Size = new System.Drawing.Size(346, 376);
             this.tab_main.TabIndex = 21;
             // 
             // apps
@@ -274,7 +279,7 @@
             this.apps.Controls.Add(this.list_processes);
             this.apps.Location = new System.Drawing.Point(4, 22);
             this.apps.Name = "apps";
-            this.apps.Size = new System.Drawing.Size(352, 282);
+            this.apps.Size = new System.Drawing.Size(336, 270);
             this.apps.TabIndex = 2;
             this.apps.Text = "Apps";
             this.apps.UseVisualStyleBackColor = true;
@@ -290,7 +295,7 @@
             this.list_processes.ItemHeight = 14;
             this.list_processes.Location = new System.Drawing.Point(0, 0);
             this.list_processes.Name = "list_processes";
-            this.list_processes.Size = new System.Drawing.Size(352, 282);
+            this.list_processes.Size = new System.Drawing.Size(336, 270);
             this.list_processes.TabIndex = 0;
             // 
             // menu_processes
@@ -353,11 +358,20 @@
             // 
             // storage
             // 
+            this.storage.Controls.Add(this.lbl_space);
             this.storage.Controls.Add(this.chart_disk);
+            this.storage.Controls.Add(this.lbl_read);
+            this.storage.Controls.Add(this.lbl_disk);
+            this.storage.Controls.Add(this.progress_storage);
             this.storage.Controls.Add(this.lbl_storage_info);
+            this.storage.Controls.Add(this.lbl_storage_stat);
+            this.storage.Controls.Add(this.progress_read);
+            this.storage.Controls.Add(this.lbl_read_stat);
+            this.storage.Controls.Add(this.progress_write);
+            this.storage.Controls.Add(this.lbl_disk_stat);
             this.storage.Location = new System.Drawing.Point(4, 22);
             this.storage.Name = "storage";
-            this.storage.Size = new System.Drawing.Size(336, 270);
+            this.storage.Size = new System.Drawing.Size(338, 350);
             this.storage.TabIndex = 3;
             this.storage.Text = "Storage";
             this.storage.UseVisualStyleBackColor = true;
@@ -380,7 +394,7 @@
             legend3.Enabled = false;
             legend3.Name = "Legend1";
             this.chart_disk.Legends.Add(legend3);
-            this.chart_disk.Location = new System.Drawing.Point(0, 92);
+            this.chart_disk.Location = new System.Drawing.Point(0, 172);
             this.chart_disk.Name = "chart_disk";
             this.chart_disk.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Excel;
             series3.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.DiagonalLeft;
@@ -390,17 +404,17 @@
             series3.Legend = "Legend1";
             series3.Name = "DISK";
             this.chart_disk.Series.Add(series3);
-            this.chart_disk.Size = new System.Drawing.Size(336, 178);
+            this.chart_disk.Size = new System.Drawing.Size(338, 178);
             this.chart_disk.TabIndex = 19;
             this.chart_disk.Text = "chart1";
             // 
             // lbl_storage_info
             // 
             this.lbl_storage_info.AutoSize = true;
-            this.lbl_storage_info.Font = new System.Drawing.Font("Roboto", 9F);
-            this.lbl_storage_info.Location = new System.Drawing.Point(8, 12);
+            this.lbl_storage_info.Font = new System.Drawing.Font("Roboto", 8F);
+            this.lbl_storage_info.Location = new System.Drawing.Point(8, 97);
             this.lbl_storage_info.Name = "lbl_storage_info";
-            this.lbl_storage_info.Size = new System.Drawing.Size(73, 14);
+            this.lbl_storage_info.Size = new System.Drawing.Size(68, 13);
             this.lbl_storage_info.TabIndex = 0;
             this.lbl_storage_info.Text = "Storage info";
             // 
@@ -408,21 +422,15 @@
             // 
             this.battery.Location = new System.Drawing.Point(4, 22);
             this.battery.Name = "battery";
-            this.battery.Size = new System.Drawing.Size(352, 282);
+            this.battery.Size = new System.Drawing.Size(336, 270);
             this.battery.TabIndex = 4;
             this.battery.Text = "Battery";
             this.battery.UseVisualStyleBackColor = true;
             // 
             // panel_main
             // 
-            this.panel_main.Controls.Add(this.lbl_space);
-            this.panel_main.Controls.Add(this.lbl_disk);
             this.panel_main.Controls.Add(this.lbl_ram);
             this.panel_main.Controls.Add(this.progress_cpu);
-            this.panel_main.Controls.Add(this.progress_storage);
-            this.panel_main.Controls.Add(this.lbl_storage_stat);
-            this.panel_main.Controls.Add(this.progress_disk);
-            this.panel_main.Controls.Add(this.lbl_disk_stat);
             this.panel_main.Controls.Add(this.progress_ram);
             this.panel_main.Controls.Add(this.lbl_ram_stat);
             this.panel_main.Controls.Add(this.lbl_cpu);
@@ -430,67 +438,28 @@
             this.panel_main.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel_main.Location = new System.Drawing.Point(0, 0);
             this.panel_main.Name = "panel_main";
-            this.panel_main.Size = new System.Drawing.Size(344, 184);
+            this.panel_main.Size = new System.Drawing.Size(346, 94);
             this.panel_main.TabIndex = 22;
+            // 
+            // lbl_space
+            // 
+            this.lbl_space.AutoSize = true;
+            this.lbl_space.Font = new System.Drawing.Font("Roboto", 7F);
+            this.lbl_space.Location = new System.Drawing.Point(3, 14);
+            this.lbl_space.Name = "lbl_space";
+            this.lbl_space.Size = new System.Drawing.Size(36, 13);
+            this.lbl_space.TabIndex = 20;
+            this.lbl_space.Text = "Space:";
             // 
             // lbl_disk
             // 
             this.lbl_disk.AutoSize = true;
-            this.lbl_disk.Location = new System.Drawing.Point(3, 105);
+            this.lbl_disk.Font = new System.Drawing.Font("Roboto", 7F);
+            this.lbl_disk.Location = new System.Drawing.Point(2, 71);
             this.lbl_disk.Name = "lbl_disk";
-            this.lbl_disk.Size = new System.Drawing.Size(35, 13);
+            this.lbl_disk.Size = new System.Drawing.Size(31, 13);
             this.lbl_disk.TabIndex = 20;
             this.lbl_disk.Text = "Write:";
-            // 
-            // progress_disk
-            // 
-            this.progress_disk.AllowAnimations = false;
-            this.progress_disk.Animation = 0;
-            this.progress_disk.AnimationSpeed = 220;
-            this.progress_disk.AnimationStep = 10;
-            this.progress_disk.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(223)))), ((int)(((byte)(223)))));
-            this.progress_disk.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("progress_disk.BackgroundImage")));
-            this.progress_disk.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(223)))), ((int)(((byte)(223)))));
-            this.progress_disk.BorderRadius = 9;
-            this.progress_disk.BorderThickness = 1;
-            this.progress_disk.Location = new System.Drawing.Point(54, 105);
-            this.progress_disk.Maximum = 100;
-            this.progress_disk.MaximumValue = 100;
-            this.progress_disk.Minimum = 0;
-            this.progress_disk.MinimumValue = 0;
-            this.progress_disk.Name = "progress_disk";
-            this.progress_disk.Orientation = System.Windows.Forms.Orientation.Horizontal;
-            this.progress_disk.ProgressBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(223)))), ((int)(((byte)(223)))));
-            this.progress_disk.ProgressColorLeft = System.Drawing.Color.DodgerBlue;
-            this.progress_disk.ProgressColorRight = System.Drawing.Color.PaleVioletRed;
-            this.progress_disk.Size = new System.Drawing.Size(232, 13);
-            this.progress_disk.TabIndex = 17;
-            this.progress_disk.Value = 10;
-            this.progress_disk.ValueByTransition = 10;
-            // 
-            // lbl_disk_stat
-            // 
-            this.lbl_disk_stat.AutoSize = true;
-            this.lbl_disk_stat.Location = new System.Drawing.Point(292, 105);
-            this.lbl_disk_stat.Name = "lbl_disk_stat";
-            this.lbl_disk_stat.Size = new System.Drawing.Size(21, 13);
-            this.lbl_disk_stat.TabIndex = 20;
-            this.lbl_disk_stat.Text = "0%";
-            // 
-            // pDISK
-            // 
-            this.pDISK.CategoryName = "PhysicalDisk";
-            this.pDISK.CounterName = "Disk Write Bytes/sec";
-            this.pDISK.InstanceName = "_Total";
-            // 
-            // lbl_storage_stat
-            // 
-            this.lbl_storage_stat.AutoSize = true;
-            this.lbl_storage_stat.Location = new System.Drawing.Point(292, 150);
-            this.lbl_storage_stat.Name = "lbl_storage_stat";
-            this.lbl_storage_stat.Size = new System.Drawing.Size(21, 13);
-            this.lbl_storage_stat.TabIndex = 20;
-            this.lbl_storage_stat.Text = "0%";
             // 
             // progress_storage
             // 
@@ -503,7 +472,7 @@
             this.progress_storage.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(223)))), ((int)(((byte)(223)))));
             this.progress_storage.BorderRadius = 9;
             this.progress_storage.BorderThickness = 1;
-            this.progress_storage.Location = new System.Drawing.Point(54, 150);
+            this.progress_storage.Location = new System.Drawing.Point(50, 14);
             this.progress_storage.Maximum = 100;
             this.progress_storage.MaximumValue = 100;
             this.progress_storage.Minimum = 0;
@@ -518,21 +487,116 @@
             this.progress_storage.Value = 10;
             this.progress_storage.ValueByTransition = 10;
             // 
-            // lbl_space
+            // lbl_storage_stat
             // 
-            this.lbl_space.AutoSize = true;
-            this.lbl_space.Location = new System.Drawing.Point(4, 151);
-            this.lbl_space.Name = "lbl_space";
-            this.lbl_space.Size = new System.Drawing.Size(41, 13);
-            this.lbl_space.TabIndex = 20;
-            this.lbl_space.Text = "Space:";
+            this.lbl_storage_stat.AutoSize = true;
+            this.lbl_storage_stat.Font = new System.Drawing.Font("Roboto", 7F);
+            this.lbl_storage_stat.Location = new System.Drawing.Point(288, 14);
+            this.lbl_storage_stat.Name = "lbl_storage_stat";
+            this.lbl_storage_stat.Size = new System.Drawing.Size(20, 13);
+            this.lbl_storage_stat.TabIndex = 20;
+            this.lbl_storage_stat.Text = "0%";
+            // 
+            // progress_write
+            // 
+            this.progress_write.AllowAnimations = false;
+            this.progress_write.Animation = 0;
+            this.progress_write.AnimationSpeed = 220;
+            this.progress_write.AnimationStep = 10;
+            this.progress_write.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(223)))), ((int)(((byte)(223)))));
+            this.progress_write.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("progress_write.BackgroundImage")));
+            this.progress_write.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(223)))), ((int)(((byte)(223)))));
+            this.progress_write.BorderRadius = 9;
+            this.progress_write.BorderThickness = 1;
+            this.progress_write.Location = new System.Drawing.Point(50, 72);
+            this.progress_write.Maximum = 100;
+            this.progress_write.MaximumValue = 100;
+            this.progress_write.Minimum = 0;
+            this.progress_write.MinimumValue = 0;
+            this.progress_write.Name = "progress_write";
+            this.progress_write.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            this.progress_write.ProgressBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(223)))), ((int)(((byte)(223)))));
+            this.progress_write.ProgressColorLeft = System.Drawing.Color.DodgerBlue;
+            this.progress_write.ProgressColorRight = System.Drawing.Color.PaleVioletRed;
+            this.progress_write.Size = new System.Drawing.Size(232, 13);
+            this.progress_write.TabIndex = 17;
+            this.progress_write.Value = 10;
+            this.progress_write.ValueByTransition = 10;
+            // 
+            // lbl_disk_stat
+            // 
+            this.lbl_disk_stat.AutoSize = true;
+            this.lbl_disk_stat.Font = new System.Drawing.Font("Roboto", 7F);
+            this.lbl_disk_stat.Location = new System.Drawing.Point(288, 72);
+            this.lbl_disk_stat.Name = "lbl_disk_stat";
+            this.lbl_disk_stat.Size = new System.Drawing.Size(20, 13);
+            this.lbl_disk_stat.TabIndex = 20;
+            this.lbl_disk_stat.Text = "0%";
+            // 
+            // pWRITE
+            // 
+            this.pWRITE.CategoryName = "PhysicalDisk";
+            this.pWRITE.CounterName = "Disk Write Bytes/sec";
+            this.pWRITE.InstanceName = "_Total";
+            // 
+            // lbl_read_stat
+            // 
+            this.lbl_read_stat.AutoSize = true;
+            this.lbl_read_stat.Font = new System.Drawing.Font("Roboto", 7F);
+            this.lbl_read_stat.Location = new System.Drawing.Point(288, 42);
+            this.lbl_read_stat.Name = "lbl_read_stat";
+            this.lbl_read_stat.Size = new System.Drawing.Size(20, 13);
+            this.lbl_read_stat.TabIndex = 20;
+            this.lbl_read_stat.Text = "0%";
+            // 
+            // progress_read
+            // 
+            this.progress_read.AllowAnimations = false;
+            this.progress_read.Animation = 0;
+            this.progress_read.AnimationSpeed = 220;
+            this.progress_read.AnimationStep = 10;
+            this.progress_read.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(223)))), ((int)(((byte)(223)))));
+            this.progress_read.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("progress_read.BackgroundImage")));
+            this.progress_read.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(223)))), ((int)(((byte)(223)))));
+            this.progress_read.BorderRadius = 9;
+            this.progress_read.BorderThickness = 1;
+            this.progress_read.Location = new System.Drawing.Point(50, 42);
+            this.progress_read.Maximum = 100;
+            this.progress_read.MaximumValue = 100;
+            this.progress_read.Minimum = 0;
+            this.progress_read.MinimumValue = 0;
+            this.progress_read.Name = "progress_read";
+            this.progress_read.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            this.progress_read.ProgressBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(223)))), ((int)(((byte)(223)))));
+            this.progress_read.ProgressColorLeft = System.Drawing.Color.DodgerBlue;
+            this.progress_read.ProgressColorRight = System.Drawing.Color.PaleVioletRed;
+            this.progress_read.Size = new System.Drawing.Size(232, 13);
+            this.progress_read.TabIndex = 17;
+            this.progress_read.Value = 10;
+            this.progress_read.ValueByTransition = 10;
+            // 
+            // lbl_read
+            // 
+            this.lbl_read.AutoSize = true;
+            this.lbl_read.Font = new System.Drawing.Font("Roboto", 7F);
+            this.lbl_read.Location = new System.Drawing.Point(2, 41);
+            this.lbl_read.Name = "lbl_read";
+            this.lbl_read.Size = new System.Drawing.Size(31, 13);
+            this.lbl_read.TabIndex = 20;
+            this.lbl_read.Text = "Read:";
+            // 
+            // pREAD
+            // 
+            this.pREAD.CategoryName = "PhysicalDisk";
+            this.pREAD.CounterName = "Disk Read Bytes/sec";
+            this.pREAD.InstanceName = "_Total";
             // 
             // Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(344, 480);
+            this.ClientSize = new System.Drawing.Size(346, 470);
             this.Controls.Add(this.panel_main);
             this.Controls.Add(this.tab_main);
             this.MinimumSize = new System.Drawing.Size(360, 440);
@@ -555,7 +619,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.chart_disk)).EndInit();
             this.panel_main.ResumeLayout(false);
             this.panel_main.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pDISK)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pWRITE)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pREAD)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -585,15 +650,19 @@
         private System.Windows.Forms.TabPage battery;
         private System.Windows.Forms.Label lbl_storage_info;
         private System.Windows.Forms.Label lbl_disk;
-        private Bunifu.UI.WinForms.BunifuProgressBar progress_disk;
+        private Bunifu.UI.WinForms.BunifuProgressBar progress_write;
         private System.Windows.Forms.Label lbl_disk_stat;
-        private System.Diagnostics.PerformanceCounter pDISK;
+        private System.Diagnostics.PerformanceCounter pWRITE;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart_disk;
         private System.Windows.Forms.Label lbl_cpu_model;
         private System.Windows.Forms.Label lbl_ram_info;
         private System.Windows.Forms.Label lbl_space;
         private Bunifu.UI.WinForms.BunifuProgressBar progress_storage;
         private System.Windows.Forms.Label lbl_storage_stat;
+        private System.Windows.Forms.Label lbl_read;
+        private Bunifu.UI.WinForms.BunifuProgressBar progress_read;
+        private System.Windows.Forms.Label lbl_read_stat;
+        private System.Diagnostics.PerformanceCounter pREAD;
     }
 }
 

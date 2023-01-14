@@ -160,7 +160,7 @@
         ztX/IQRvzqb5AT/NX2pcDPxxAAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="progress_disk.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="progress_read.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAOgAAAANCAYAAACjICJJAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAADfSURBVGhD7dqxCcJQEMbxjOEIlpaOYGXtEg7gFlZuYusK
@@ -170,7 +170,20 @@
         ztX/IQRvzqb5AT/NX2pcDPxxAAAAAElFTkSuQmCC
 </value>
   </data>
-  <metadata name="pDISK.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+  <data name="progress_write.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAOgAAAANCAYAAACjICJJAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAADfSURBVGhD7dqxCcJQEMbxjOEIlpaOYGXtEg7gFlZuYusK
+        bvAygBHRwsZCvwcHl4Rrc0H4f/DjBe9e+REFG0LIn6Rt210p5arzC2B6tW9y0vPCahhHSxctPfuXAaTp
+        1MGt1XEYDfbyCi4BSKIO3nUurZYeDcp4GUA+VfFstfREiwDyqaBvq6UnWgQwD6ulJ1oCMA+rpUcf3sZL
+        APLpK+7HaumpP0yjZQC51MWr1dKjwUqDbrwMII86+NC5sVoOo8HBFsLLAKZj3TtaHeNoYV1fsf2LAKal
+        ztX/IQRvzqb5AT/NX2pcDPxxAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <metadata name="pWRITE.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>404, 18</value>
+  </metadata>
+  <metadata name="pREAD.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>498, 18</value>
   </metadata>
 </root>
