@@ -30,15 +30,15 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Home));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend5 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea6 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend6 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.pRAM = new System.Diagnostics.PerformanceCounter();
             this.pCPU = new System.Diagnostics.PerformanceCounter();
             this.timer = new System.Windows.Forms.Timer(this.components);
@@ -52,14 +52,18 @@
             this.lbl_ram_stat = new System.Windows.Forms.Label();
             this.tab_main = new System.Windows.Forms.TabControl();
             this.os = new System.Windows.Forms.TabPage();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.lbl_storage_info = new System.Windows.Forms.Label();
             this.apps = new System.Windows.Forms.TabPage();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.list_processes = new System.Windows.Forms.ListBox();
             this.menu_processes = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.close = new System.Windows.Forms.ToolStripMenuItem();
             this.cpu = new System.Windows.Forms.TabPage();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.lbl_cpu_model = new System.Windows.Forms.Label();
             this.ram = new System.Windows.Forms.TabPage();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.lbl_ram_info = new System.Windows.Forms.Label();
             this.storage = new System.Windows.Forms.TabPage();
             this.lbl_space = new System.Windows.Forms.Label();
@@ -73,37 +77,38 @@
             this.progress_write = new Bunifu.UI.WinForms.BunifuProgressBar();
             this.lbl_disk_stat = new System.Windows.Forms.Label();
             this.battery = new System.Windows.Forms.TabPage();
+            this.lbl_battery_info = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel_main = new System.Windows.Forms.Panel();
             this.pWRITE = new System.Diagnostics.PerformanceCounter();
             this.pREAD = new System.Diagnostics.PerformanceCounter();
             this.timerRefresh = new System.Windows.Forms.Timer(this.components);
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.lbl_battery_info = new System.Windows.Forms.Label();
+            this.gpu = new System.Windows.Forms.TabPage();
+            this.lbl_gpu_stats = new System.Windows.Forms.Label();
+            this.pictureBox6 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pRAM)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pCPU)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart_cpu)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart_ram)).BeginInit();
             this.tab_main.SuspendLayout();
             this.os.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.apps.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.menu_processes.SuspendLayout();
             this.cpu.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.ram.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.storage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart_disk)).BeginInit();
             this.battery.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel_main.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pWRITE)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pREAD)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.gpu.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             this.SuspendLayout();
             // 
             // pRAM
@@ -178,30 +183,30 @@
             // 
             this.chart_cpu.BackColor = System.Drawing.Color.Transparent;
             this.chart_cpu.BorderSkin.BorderColor = System.Drawing.Color.Transparent;
-            chartArea4.AxisX.IsMarginVisible = false;
-            chartArea4.AxisX.LabelStyle.Enabled = false;
-            chartArea4.AxisX.LineColor = System.Drawing.Color.Gray;
-            chartArea4.AxisX.LogarithmBase = 5D;
-            chartArea4.AxisY.LabelAutoFitMaxFontSize = 8;
-            chartArea4.AxisY.LineColor = System.Drawing.Color.Gray;
-            chartArea4.AxisY.Maximum = 100D;
-            chartArea4.Name = "ChartArea1";
-            chartArea4.ShadowOffset = 6;
-            this.chart_cpu.ChartAreas.Add(chartArea4);
+            chartArea1.AxisX.IsMarginVisible = false;
+            chartArea1.AxisX.LabelStyle.Enabled = false;
+            chartArea1.AxisX.LineColor = System.Drawing.Color.Gray;
+            chartArea1.AxisX.LogarithmBase = 5D;
+            chartArea1.AxisY.LabelAutoFitMaxFontSize = 8;
+            chartArea1.AxisY.LineColor = System.Drawing.Color.Gray;
+            chartArea1.AxisY.Maximum = 100D;
+            chartArea1.Name = "ChartArea1";
+            chartArea1.ShadowOffset = 6;
+            this.chart_cpu.ChartAreas.Add(chartArea1);
             this.chart_cpu.Dock = System.Windows.Forms.DockStyle.Bottom;
-            legend4.Enabled = false;
-            legend4.Name = "Legend1";
-            this.chart_cpu.Legends.Add(legend4);
+            legend1.Enabled = false;
+            legend1.Name = "Legend1";
+            this.chart_cpu.Legends.Add(legend1);
             this.chart_cpu.Location = new System.Drawing.Point(3, 85);
             this.chart_cpu.Name = "chart_cpu";
             this.chart_cpu.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Excel;
-            series4.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.DiagonalLeft;
-            series4.BorderColor = System.Drawing.Color.MediumSlateBlue;
-            series4.ChartArea = "ChartArea1";
-            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Area;
-            series4.Legend = "Legend1";
-            series4.Name = "CPU";
-            this.chart_cpu.Series.Add(series4);
+            series1.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.DiagonalLeft;
+            series1.BorderColor = System.Drawing.Color.MediumSlateBlue;
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Area;
+            series1.Legend = "Legend1";
+            series1.Name = "CPU";
+            this.chart_cpu.Series.Add(series1);
             this.chart_cpu.Size = new System.Drawing.Size(332, 178);
             this.chart_cpu.TabIndex = 18;
             this.chart_cpu.Text = "chart1";
@@ -210,31 +215,31 @@
             // 
             this.chart_ram.BorderlineColor = System.Drawing.Color.Transparent;
             this.chart_ram.BorderSkin.BorderColor = System.Drawing.Color.Transparent;
-            chartArea5.AxisX.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.True;
-            chartArea5.AxisX.IsMarginVisible = false;
-            chartArea5.AxisX.LabelStyle.Enabled = false;
-            chartArea5.AxisX.LabelStyle.ForeColor = System.Drawing.Color.Gray;
-            chartArea5.AxisX.ScaleBreakStyle.LineColor = System.Drawing.Color.Empty;
-            chartArea5.AxisX.TitleForeColor = System.Drawing.Color.Empty;
-            chartArea5.AxisY.Maximum = 100D;
-            chartArea5.AxisY.Minimum = 0D;
-            chartArea5.Name = "ChartArea1";
-            chartArea5.ShadowOffset = 6;
-            this.chart_ram.ChartAreas.Add(chartArea5);
+            chartArea2.AxisX.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.True;
+            chartArea2.AxisX.IsMarginVisible = false;
+            chartArea2.AxisX.LabelStyle.Enabled = false;
+            chartArea2.AxisX.LabelStyle.ForeColor = System.Drawing.Color.Gray;
+            chartArea2.AxisX.ScaleBreakStyle.LineColor = System.Drawing.Color.Empty;
+            chartArea2.AxisX.TitleForeColor = System.Drawing.Color.Empty;
+            chartArea2.AxisY.Maximum = 100D;
+            chartArea2.AxisY.Minimum = 0D;
+            chartArea2.Name = "ChartArea1";
+            chartArea2.ShadowOffset = 6;
+            this.chart_ram.ChartAreas.Add(chartArea2);
             this.chart_ram.Dock = System.Windows.Forms.DockStyle.Bottom;
-            legend5.Enabled = false;
-            legend5.Name = "Legend1";
-            this.chart_ram.Legends.Add(legend5);
+            legend2.Enabled = false;
+            legend2.Name = "Legend1";
+            this.chart_ram.Legends.Add(legend2);
             this.chart_ram.Location = new System.Drawing.Point(3, 85);
             this.chart_ram.Name = "chart_ram";
             this.chart_ram.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SemiTransparent;
-            series5.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.DiagonalLeft;
-            series5.BorderColor = System.Drawing.Color.Red;
-            series5.ChartArea = "ChartArea1";
-            series5.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Area;
-            series5.Legend = "Legend1";
-            series5.Name = "RAM";
-            this.chart_ram.Series.Add(series5);
+            series2.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.DiagonalLeft;
+            series2.BorderColor = System.Drawing.Color.Red;
+            series2.ChartArea = "ChartArea1";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Area;
+            series2.Legend = "Legend1";
+            series2.Name = "RAM";
+            this.chart_ram.Series.Add(series2);
             this.chart_ram.Size = new System.Drawing.Size(332, 178);
             this.chart_ram.TabIndex = 18;
             this.chart_ram.Text = "chart1";
@@ -283,6 +288,7 @@
             this.tab_main.Controls.Add(this.ram);
             this.tab_main.Controls.Add(this.storage);
             this.tab_main.Controls.Add(this.battery);
+            this.tab_main.Controls.Add(this.gpu);
             this.tab_main.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.tab_main.Location = new System.Drawing.Point(0, 109);
             this.tab_main.Name = "tab_main";
@@ -292,6 +298,7 @@
             // 
             // os
             // 
+            this.os.BackColor = System.Drawing.Color.White;
             this.os.Controls.Add(this.pictureBox5);
             this.os.Controls.Add(this.lbl_storage_info);
             this.os.Location = new System.Drawing.Point(4, 22);
@@ -299,7 +306,16 @@
             this.os.Size = new System.Drawing.Size(338, 266);
             this.os.TabIndex = 5;
             this.os.Text = "System";
-            this.os.UseVisualStyleBackColor = true;
+            // 
+            // pictureBox5
+            // 
+            this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
+            this.pictureBox5.Location = new System.Drawing.Point(167, 95);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(171, 175);
+            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox5.TabIndex = 2;
+            this.pictureBox5.TabStop = false;
             // 
             // lbl_storage_info
             // 
@@ -322,8 +338,19 @@
             this.apps.Text = "Apps";
             this.apps.UseVisualStyleBackColor = true;
             // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(181, 143);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(161, 127);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 3;
+            this.pictureBox2.TabStop = false;
+            // 
             // list_processes
             // 
+            this.list_processes.BackColor = System.Drawing.Color.White;
             this.list_processes.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.list_processes.ContextMenuStrip = this.menu_processes;
             this.list_processes.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -352,6 +379,7 @@
             // 
             // cpu
             // 
+            this.cpu.BackColor = System.Drawing.Color.White;
             this.cpu.Controls.Add(this.pictureBox3);
             this.cpu.Controls.Add(this.lbl_cpu_model);
             this.cpu.Controls.Add(this.chart_cpu);
@@ -361,7 +389,16 @@
             this.cpu.Size = new System.Drawing.Size(338, 266);
             this.cpu.TabIndex = 0;
             this.cpu.Text = "CPU";
-            this.cpu.UseVisualStyleBackColor = true;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
+            this.pictureBox3.Location = new System.Drawing.Point(227, 6);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(103, 73);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox3.TabIndex = 20;
+            this.pictureBox3.TabStop = false;
             // 
             // lbl_cpu_model
             // 
@@ -375,6 +412,7 @@
             // 
             // ram
             // 
+            this.ram.BackColor = System.Drawing.Color.White;
             this.ram.Controls.Add(this.pictureBox4);
             this.ram.Controls.Add(this.lbl_ram_info);
             this.ram.Controls.Add(this.chart_ram);
@@ -384,7 +422,16 @@
             this.ram.Size = new System.Drawing.Size(338, 266);
             this.ram.TabIndex = 1;
             this.ram.Text = "RAM";
-            this.ram.UseVisualStyleBackColor = true;
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
+            this.pictureBox4.Location = new System.Drawing.Point(213, 12);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(117, 73);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox4.TabIndex = 21;
+            this.pictureBox4.TabStop = false;
             // 
             // lbl_ram_info
             // 
@@ -398,6 +445,7 @@
             // 
             // storage
             // 
+            this.storage.BackColor = System.Drawing.Color.White;
             this.storage.Controls.Add(this.lbl_space);
             this.storage.Controls.Add(this.chart_disk);
             this.storage.Controls.Add(this.lbl_read);
@@ -413,7 +461,6 @@
             this.storage.Size = new System.Drawing.Size(338, 266);
             this.storage.TabIndex = 3;
             this.storage.Text = "Storage";
-            this.storage.UseVisualStyleBackColor = true;
             // 
             // lbl_space
             // 
@@ -429,30 +476,30 @@
             // 
             this.chart_disk.BackColor = System.Drawing.Color.Transparent;
             this.chart_disk.BorderSkin.BorderColor = System.Drawing.Color.Transparent;
-            chartArea6.AxisX.IsMarginVisible = false;
-            chartArea6.AxisX.LabelStyle.Enabled = false;
-            chartArea6.AxisX.LineColor = System.Drawing.Color.Gray;
-            chartArea6.AxisX.LogarithmBase = 5D;
-            chartArea6.AxisY.LabelAutoFitMaxFontSize = 8;
-            chartArea6.AxisY.LineColor = System.Drawing.Color.Gray;
-            chartArea6.AxisY.Maximum = 100D;
-            chartArea6.Name = "ChartArea1";
-            chartArea6.ShadowOffset = 6;
-            this.chart_disk.ChartAreas.Add(chartArea6);
+            chartArea3.AxisX.IsMarginVisible = false;
+            chartArea3.AxisX.LabelStyle.Enabled = false;
+            chartArea3.AxisX.LineColor = System.Drawing.Color.Gray;
+            chartArea3.AxisX.LogarithmBase = 5D;
+            chartArea3.AxisY.LabelAutoFitMaxFontSize = 8;
+            chartArea3.AxisY.LineColor = System.Drawing.Color.Gray;
+            chartArea3.AxisY.Maximum = 100D;
+            chartArea3.Name = "ChartArea1";
+            chartArea3.ShadowOffset = 6;
+            this.chart_disk.ChartAreas.Add(chartArea3);
             this.chart_disk.Dock = System.Windows.Forms.DockStyle.Bottom;
-            legend6.Enabled = false;
-            legend6.Name = "Legend1";
-            this.chart_disk.Legends.Add(legend6);
+            legend3.Enabled = false;
+            legend3.Name = "Legend1";
+            this.chart_disk.Legends.Add(legend3);
             this.chart_disk.Location = new System.Drawing.Point(0, 88);
             this.chart_disk.Name = "chart_disk";
             this.chart_disk.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Excel;
-            series6.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.DiagonalLeft;
-            series6.BorderColor = System.Drawing.Color.MediumSlateBlue;
-            series6.ChartArea = "ChartArea1";
-            series6.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Area;
-            series6.Legend = "Legend1";
-            series6.Name = "DISK";
-            this.chart_disk.Series.Add(series6);
+            series3.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.DiagonalLeft;
+            series3.BorderColor = System.Drawing.Color.MediumSlateBlue;
+            series3.ChartArea = "ChartArea1";
+            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Area;
+            series3.Legend = "Legend1";
+            series3.Name = "DISK";
+            this.chart_disk.Series.Add(series3);
             this.chart_disk.Size = new System.Drawing.Size(338, 178);
             this.chart_disk.TabIndex = 19;
             this.chart_disk.Text = "chart1";
@@ -587,6 +634,7 @@
             // 
             // battery
             // 
+            this.battery.BackColor = System.Drawing.Color.White;
             this.battery.Controls.Add(this.lbl_battery_info);
             this.battery.Controls.Add(this.pictureBox1);
             this.battery.Location = new System.Drawing.Point(4, 22);
@@ -594,7 +642,26 @@
             this.battery.Size = new System.Drawing.Size(338, 266);
             this.battery.TabIndex = 4;
             this.battery.Text = "Battery";
-            this.battery.UseVisualStyleBackColor = true;
+            // 
+            // lbl_battery_info
+            // 
+            this.lbl_battery_info.AutoSize = true;
+            this.lbl_battery_info.Font = new System.Drawing.Font("Roboto", 9F);
+            this.lbl_battery_info.Location = new System.Drawing.Point(8, 10);
+            this.lbl_battery_info.Name = "lbl_battery_info";
+            this.lbl_battery_info.Size = new System.Drawing.Size(69, 14);
+            this.lbl_battery_info.TabIndex = 20;
+            this.lbl_battery_info.Text = "Battery info";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(193, 147);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(137, 116);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 3;
+            this.pictureBox1.TabStop = false;
             // 
             // panel_main
             // 
@@ -626,65 +693,36 @@
             // 
             this.timerRefresh.Tick += new System.EventHandler(this.TimerRefresh_Tick);
             // 
-            // pictureBox2
+            // gpu
             // 
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(181, 143);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(161, 127);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 3;
-            this.pictureBox2.TabStop = false;
+            this.gpu.Controls.Add(this.lbl_gpu_stats);
+            this.gpu.Controls.Add(this.pictureBox6);
+            this.gpu.Location = new System.Drawing.Point(4, 22);
+            this.gpu.Name = "gpu";
+            this.gpu.Size = new System.Drawing.Size(338, 266);
+            this.gpu.TabIndex = 6;
+            this.gpu.Text = "GPU";
+            this.gpu.UseVisualStyleBackColor = true;
             // 
-            // pictureBox3
+            // lbl_gpu_stats
             // 
-            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(227, 6);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(103, 73);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox3.TabIndex = 20;
-            this.pictureBox3.TabStop = false;
+            this.lbl_gpu_stats.AutoSize = true;
+            this.lbl_gpu_stats.Font = new System.Drawing.Font("Roboto", 9F);
+            this.lbl_gpu_stats.Location = new System.Drawing.Point(8, 7);
+            this.lbl_gpu_stats.Name = "lbl_gpu_stats";
+            this.lbl_gpu_stats.Size = new System.Drawing.Size(55, 14);
+            this.lbl_gpu_stats.TabIndex = 22;
+            this.lbl_gpu_stats.Text = "GPU info";
             // 
-            // pictureBox4
+            // pictureBox6
             // 
-            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
-            this.pictureBox4.Location = new System.Drawing.Point(213, 12);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(117, 73);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox4.TabIndex = 21;
-            this.pictureBox4.TabStop = false;
-            // 
-            // pictureBox5
-            // 
-            this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
-            this.pictureBox5.Location = new System.Drawing.Point(167, 95);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(171, 175);
-            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox5.TabIndex = 2;
-            this.pictureBox5.TabStop = false;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(193, 147);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(137, 116);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 3;
-            this.pictureBox1.TabStop = false;
-            // 
-            // lbl_battery_info
-            // 
-            this.lbl_battery_info.AutoSize = true;
-            this.lbl_battery_info.Font = new System.Drawing.Font("Roboto", 9F);
-            this.lbl_battery_info.Location = new System.Drawing.Point(8, 10);
-            this.lbl_battery_info.Name = "lbl_battery_info";
-            this.lbl_battery_info.Size = new System.Drawing.Size(69, 14);
-            this.lbl_battery_info.TabIndex = 20;
-            this.lbl_battery_info.Text = "Battery info";
+            this.pictureBox6.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox6.Image")));
+            this.pictureBox6.Location = new System.Drawing.Point(193, 144);
+            this.pictureBox6.Name = "pictureBox6";
+            this.pictureBox6.Size = new System.Drawing.Size(137, 116);
+            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox6.TabIndex = 21;
+            this.pictureBox6.TabStop = false;
             // 
             // Home
             // 
@@ -708,26 +746,29 @@
             this.tab_main.ResumeLayout(false);
             this.os.ResumeLayout(false);
             this.os.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             this.apps.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.menu_processes.ResumeLayout(false);
             this.cpu.ResumeLayout(false);
             this.cpu.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.ram.ResumeLayout(false);
             this.ram.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.storage.ResumeLayout(false);
             this.storage.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart_disk)).EndInit();
             this.battery.ResumeLayout(false);
             this.battery.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel_main.ResumeLayout(false);
             this.panel_main.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pWRITE)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pREAD)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.gpu.ResumeLayout(false);
+            this.gpu.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -778,6 +819,9 @@
         private System.Windows.Forms.PictureBox pictureBox5;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label lbl_battery_info;
+        private System.Windows.Forms.TabPage gpu;
+        private System.Windows.Forms.Label lbl_gpu_stats;
+        private System.Windows.Forms.PictureBox pictureBox6;
     }
 }
 
