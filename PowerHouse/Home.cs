@@ -185,7 +185,7 @@ namespace PowerHouse
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString());
+                // do nothing
             }
         }
         // load information about the processor
