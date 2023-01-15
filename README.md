@@ -11,7 +11,7 @@ A few kernal classes was called to pull required data, a couple of charts and pr
 <img src="https://github.com/V014/PowerHouse/blob/main/screenshots/powerhouse-apps.png" alt="image of app showing running applications" />
 
 ## CPU statistics
-<p>The CPU stats are breif for the average user looking for staright facts about the poower the computer has</p>
+<p>The CPU stats are breif straight facts about the power, and cores the process has</p>
 <img src="https://github.com/V014/PowerHouse/blob/main/screenshots/powerhouse-cpu.png" alt="image of app showing cpu statistics"/>
 
 ## RAM statistics
