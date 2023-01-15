@@ -3,21 +3,21 @@ This windows task manager shows the CPU, RAM, disk usage powered by .Net C# and 
 A few kernal classes was called to pull required data, a couple of charts and progress bars
 
 ## System information
-The operating system deaileds are displayed to give you an idea of the software installed on the hardware
+<p>The operating system deaileds are displayed to give you an idea of the software installed on the hardware</p>
 ![Alt text of the image](https://github.com/V014/PowerHouse/blob/main/screenshots/powerhouse-system.png)
 
 ## Processes
-The active apps running on your system are displayed, you may right click and close the app if you please
+<p>The active apps running on your system are displayed, you may right click and close the app if you please</p>
 ![Alt text of the image](https://github.com/V014/PowerHouse/blob/main/screenshots/powerhouse-apps.png)
 
 ## CPU statistics
-The CPU stats are breif for the average user looking for staright facts about the poower the computer has
+<p>The CPU stats are breif for the average user looking for staright facts about the poower the computer has</p>
 ![Alt text of the image](https://github.com/V014/PowerHouse/blob/main/screenshots/powerhouse-cpu.png)
 
 ## RAM statistics
-Rather economical at presenting activity, but it is all normal
+<p>Rather economical at presenting activity, but it is all normal</p>
 ![Alt text of the image](https://github.com/V014/PowerHouse/blob/main/screenshots/powerhouse-ram.png)
 
 ## DISK statistics
-show their activity when transfering media.
+<p>show their activity when transfering media.</p>
 ![Alt text of the image](https://github.com/V014/PowerHouse/blob/main/screenshots/powerhouse-storage.png)
