@@ -8,7 +8,7 @@ A few kernal classes was called to pull required data, a couple of charts and pr
 
 ## Processes
 <p>The active apps running on your system are displayed, you may right click and close the app if you please</p>
-![Alt text of the image](https://github.com/V014/PowerHouse/blob/main/screenshots/powerhouse-apps.png)
+<img src="https://github.com/V014/PowerHouse/blob/main/screenshots/powerhouse-apps.png" alt="image of app showing running applications" />
 
 ## CPU statistics
 <p>The CPU stats are breif for the average user looking for staright facts about the poower the computer has</p>
