@@ -4,7 +4,7 @@ A few kernal classes was called to pull required data, a couple of charts and pr
 
 ## System information
 <p>The operating system deaileds are displayed to give you an idea of the software installed on the hardware</p>
-![Alt text of the image](https://github.com/V014/PowerHouse/blob/main/screenshots/powerhouse-system.png)
+<img src="https://github.com/V014/PowerHouse/blob/main/screenshots/powerhouse-system.png" alt="power house dashboard"/>
 
 ## Processes
 <p>The active apps running on your system are displayed, you may right click and close the app if you please</p>
