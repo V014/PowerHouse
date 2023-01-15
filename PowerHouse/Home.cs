@@ -23,6 +23,7 @@ namespace PowerHouse
             Cpu_info();
             Os_info();
             Ram_info();
+            Battery_info();
             // set timer to auto refresh
             Timer timerRefresh = new Timer
             {
@@ -253,6 +254,32 @@ namespace PowerHouse
         private void List_processes_SelectedIndexChanged(object sender, EventArgs e)
         {
             OldFocusedIndex = list_processes.SelectedIndex;
+        }
+        private void Battery_info()
+        {
+            SelectQuery Sq = new SelectQuery("Win32_Battery");
+            ManagementObjectSearcher objOSDetails = new ManagementObjectSearcher(Sq);
+            ManagementObjectCollection osDetailsCollection = objOSDetails.Get();
+            StringBuilder sb = new StringBuilder();
+
+            foreach (ManagementObject mo in osDetailsCollection)
+            {
+                sb.AppendLine(string.Format("Availability: {0}", (ushort)mo["Availability"]));
+                sb.AppendLine(string.Format("BatteryStatus: {0}", (ushort)mo["BatteryStatus"]));
+                sb.AppendLine(string.Format("Description: {0}", (string)mo["Description"]));
+                sb.AppendLine(string.Format("DesignVoltage: {0} Volts", (ulong)mo["DesignVoltage"]));
+                sb.AppendLine(string.Format("DeviceID : {0}", (string)mo["DeviceID"]));
+                sb.AppendLine(string.Format("EstimatedChargeRemaining: {0}%", (ushort)mo["EstimatedChargeRemaining"]));
+                sb.AppendLine(string.Format("EstimatedRunTime : {0} Minutes", mo["EstimatedRunTime"]).ToString());
+                sb.AppendLine(string.Format("Name : {0}", (string)mo["Name"]));
+                sb.AppendLine(string.Format("Status : {0}", (string)mo["Status"]));
+                UInt16[] PowerManagement = (UInt16[])mo["PowerManagementCapabilities"];
+                foreach (uint version in PowerManagement)
+                {
+                    sb.AppendLine(string.Format("PowerManagementCapabilities: {0}", version.ToString()));
+                }
+            }
+            lbl_battery_info.Text = sb.ToString();
         }
     }
 }

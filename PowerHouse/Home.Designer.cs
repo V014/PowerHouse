@@ -30,15 +30,15 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Home));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend5 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea6 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend6 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.pRAM = new System.Diagnostics.PerformanceCounter();
             this.pCPU = new System.Diagnostics.PerformanceCounter();
             this.timer = new System.Windows.Forms.Timer(this.components);
@@ -77,10 +77,12 @@
             this.pWRITE = new System.Diagnostics.PerformanceCounter();
             this.pREAD = new System.Diagnostics.PerformanceCounter();
             this.timerRefresh = new System.Windows.Forms.Timer(this.components);
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.lbl_battery_info = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pRAM)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pCPU)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart_cpu)).BeginInit();
@@ -93,13 +95,15 @@
             this.ram.SuspendLayout();
             this.storage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart_disk)).BeginInit();
+            this.battery.SuspendLayout();
             this.panel_main.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pWRITE)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pREAD)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // pRAM
@@ -174,30 +178,30 @@
             // 
             this.chart_cpu.BackColor = System.Drawing.Color.Transparent;
             this.chart_cpu.BorderSkin.BorderColor = System.Drawing.Color.Transparent;
-            chartArea1.AxisX.IsMarginVisible = false;
-            chartArea1.AxisX.LabelStyle.Enabled = false;
-            chartArea1.AxisX.LineColor = System.Drawing.Color.Gray;
-            chartArea1.AxisX.LogarithmBase = 5D;
-            chartArea1.AxisY.LabelAutoFitMaxFontSize = 8;
-            chartArea1.AxisY.LineColor = System.Drawing.Color.Gray;
-            chartArea1.AxisY.Maximum = 100D;
-            chartArea1.Name = "ChartArea1";
-            chartArea1.ShadowOffset = 6;
-            this.chart_cpu.ChartAreas.Add(chartArea1);
+            chartArea4.AxisX.IsMarginVisible = false;
+            chartArea4.AxisX.LabelStyle.Enabled = false;
+            chartArea4.AxisX.LineColor = System.Drawing.Color.Gray;
+            chartArea4.AxisX.LogarithmBase = 5D;
+            chartArea4.AxisY.LabelAutoFitMaxFontSize = 8;
+            chartArea4.AxisY.LineColor = System.Drawing.Color.Gray;
+            chartArea4.AxisY.Maximum = 100D;
+            chartArea4.Name = "ChartArea1";
+            chartArea4.ShadowOffset = 6;
+            this.chart_cpu.ChartAreas.Add(chartArea4);
             this.chart_cpu.Dock = System.Windows.Forms.DockStyle.Bottom;
-            legend1.Enabled = false;
-            legend1.Name = "Legend1";
-            this.chart_cpu.Legends.Add(legend1);
+            legend4.Enabled = false;
+            legend4.Name = "Legend1";
+            this.chart_cpu.Legends.Add(legend4);
             this.chart_cpu.Location = new System.Drawing.Point(3, 85);
             this.chart_cpu.Name = "chart_cpu";
             this.chart_cpu.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Excel;
-            series1.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.DiagonalLeft;
-            series1.BorderColor = System.Drawing.Color.MediumSlateBlue;
-            series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Area;
-            series1.Legend = "Legend1";
-            series1.Name = "CPU";
-            this.chart_cpu.Series.Add(series1);
+            series4.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.DiagonalLeft;
+            series4.BorderColor = System.Drawing.Color.MediumSlateBlue;
+            series4.ChartArea = "ChartArea1";
+            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Area;
+            series4.Legend = "Legend1";
+            series4.Name = "CPU";
+            this.chart_cpu.Series.Add(series4);
             this.chart_cpu.Size = new System.Drawing.Size(332, 178);
             this.chart_cpu.TabIndex = 18;
             this.chart_cpu.Text = "chart1";
@@ -206,31 +210,31 @@
             // 
             this.chart_ram.BorderlineColor = System.Drawing.Color.Transparent;
             this.chart_ram.BorderSkin.BorderColor = System.Drawing.Color.Transparent;
-            chartArea2.AxisX.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.True;
-            chartArea2.AxisX.IsMarginVisible = false;
-            chartArea2.AxisX.LabelStyle.Enabled = false;
-            chartArea2.AxisX.LabelStyle.ForeColor = System.Drawing.Color.Gray;
-            chartArea2.AxisX.ScaleBreakStyle.LineColor = System.Drawing.Color.Empty;
-            chartArea2.AxisX.TitleForeColor = System.Drawing.Color.Empty;
-            chartArea2.AxisY.Maximum = 100D;
-            chartArea2.AxisY.Minimum = 0D;
-            chartArea2.Name = "ChartArea1";
-            chartArea2.ShadowOffset = 6;
-            this.chart_ram.ChartAreas.Add(chartArea2);
+            chartArea5.AxisX.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.True;
+            chartArea5.AxisX.IsMarginVisible = false;
+            chartArea5.AxisX.LabelStyle.Enabled = false;
+            chartArea5.AxisX.LabelStyle.ForeColor = System.Drawing.Color.Gray;
+            chartArea5.AxisX.ScaleBreakStyle.LineColor = System.Drawing.Color.Empty;
+            chartArea5.AxisX.TitleForeColor = System.Drawing.Color.Empty;
+            chartArea5.AxisY.Maximum = 100D;
+            chartArea5.AxisY.Minimum = 0D;
+            chartArea5.Name = "ChartArea1";
+            chartArea5.ShadowOffset = 6;
+            this.chart_ram.ChartAreas.Add(chartArea5);
             this.chart_ram.Dock = System.Windows.Forms.DockStyle.Bottom;
-            legend2.Enabled = false;
-            legend2.Name = "Legend1";
-            this.chart_ram.Legends.Add(legend2);
+            legend5.Enabled = false;
+            legend5.Name = "Legend1";
+            this.chart_ram.Legends.Add(legend5);
             this.chart_ram.Location = new System.Drawing.Point(3, 85);
             this.chart_ram.Name = "chart_ram";
             this.chart_ram.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SemiTransparent;
-            series2.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.DiagonalLeft;
-            series2.BorderColor = System.Drawing.Color.Red;
-            series2.ChartArea = "ChartArea1";
-            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Area;
-            series2.Legend = "Legend1";
-            series2.Name = "RAM";
-            this.chart_ram.Series.Add(series2);
+            series5.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.DiagonalLeft;
+            series5.BorderColor = System.Drawing.Color.Red;
+            series5.ChartArea = "ChartArea1";
+            series5.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Area;
+            series5.Legend = "Legend1";
+            series5.Name = "RAM";
+            this.chart_ram.Series.Add(series5);
             this.chart_ram.Size = new System.Drawing.Size(332, 178);
             this.chart_ram.TabIndex = 18;
             this.chart_ram.Text = "chart1";
@@ -288,7 +292,7 @@
             // 
             // os
             // 
-            this.os.Controls.Add(this.pictureBox1);
+            this.os.Controls.Add(this.pictureBox5);
             this.os.Controls.Add(this.lbl_storage_info);
             this.os.Location = new System.Drawing.Point(4, 22);
             this.os.Name = "os";
@@ -425,30 +429,30 @@
             // 
             this.chart_disk.BackColor = System.Drawing.Color.Transparent;
             this.chart_disk.BorderSkin.BorderColor = System.Drawing.Color.Transparent;
-            chartArea3.AxisX.IsMarginVisible = false;
-            chartArea3.AxisX.LabelStyle.Enabled = false;
-            chartArea3.AxisX.LineColor = System.Drawing.Color.Gray;
-            chartArea3.AxisX.LogarithmBase = 5D;
-            chartArea3.AxisY.LabelAutoFitMaxFontSize = 8;
-            chartArea3.AxisY.LineColor = System.Drawing.Color.Gray;
-            chartArea3.AxisY.Maximum = 100D;
-            chartArea3.Name = "ChartArea1";
-            chartArea3.ShadowOffset = 6;
-            this.chart_disk.ChartAreas.Add(chartArea3);
+            chartArea6.AxisX.IsMarginVisible = false;
+            chartArea6.AxisX.LabelStyle.Enabled = false;
+            chartArea6.AxisX.LineColor = System.Drawing.Color.Gray;
+            chartArea6.AxisX.LogarithmBase = 5D;
+            chartArea6.AxisY.LabelAutoFitMaxFontSize = 8;
+            chartArea6.AxisY.LineColor = System.Drawing.Color.Gray;
+            chartArea6.AxisY.Maximum = 100D;
+            chartArea6.Name = "ChartArea1";
+            chartArea6.ShadowOffset = 6;
+            this.chart_disk.ChartAreas.Add(chartArea6);
             this.chart_disk.Dock = System.Windows.Forms.DockStyle.Bottom;
-            legend3.Enabled = false;
-            legend3.Name = "Legend1";
-            this.chart_disk.Legends.Add(legend3);
+            legend6.Enabled = false;
+            legend6.Name = "Legend1";
+            this.chart_disk.Legends.Add(legend6);
             this.chart_disk.Location = new System.Drawing.Point(0, 88);
             this.chart_disk.Name = "chart_disk";
             this.chart_disk.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Excel;
-            series3.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.DiagonalLeft;
-            series3.BorderColor = System.Drawing.Color.MediumSlateBlue;
-            series3.ChartArea = "ChartArea1";
-            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Area;
-            series3.Legend = "Legend1";
-            series3.Name = "DISK";
-            this.chart_disk.Series.Add(series3);
+            series6.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.DiagonalLeft;
+            series6.BorderColor = System.Drawing.Color.MediumSlateBlue;
+            series6.ChartArea = "ChartArea1";
+            series6.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Area;
+            series6.Legend = "Legend1";
+            series6.Name = "DISK";
+            this.chart_disk.Series.Add(series6);
             this.chart_disk.Size = new System.Drawing.Size(338, 178);
             this.chart_disk.TabIndex = 19;
             this.chart_disk.Text = "chart1";
@@ -583,6 +587,8 @@
             // 
             // battery
             // 
+            this.battery.Controls.Add(this.lbl_battery_info);
+            this.battery.Controls.Add(this.pictureBox1);
             this.battery.Location = new System.Drawing.Point(4, 22);
             this.battery.Name = "battery";
             this.battery.Size = new System.Drawing.Size(338, 266);
@@ -620,16 +626,6 @@
             // 
             this.timerRefresh.Tick += new System.EventHandler(this.TimerRefresh_Tick);
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(140, 116);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(195, 150);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 2;
-            this.pictureBox1.TabStop = false;
-            // 
             // pictureBox2
             // 
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
@@ -659,6 +655,36 @@
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox4.TabIndex = 21;
             this.pictureBox4.TabStop = false;
+            // 
+            // pictureBox5
+            // 
+            this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
+            this.pictureBox5.Location = new System.Drawing.Point(167, 95);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(171, 175);
+            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox5.TabIndex = 2;
+            this.pictureBox5.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(193, 147);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(137, 116);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 3;
+            this.pictureBox1.TabStop = false;
+            // 
+            // lbl_battery_info
+            // 
+            this.lbl_battery_info.AutoSize = true;
+            this.lbl_battery_info.Font = new System.Drawing.Font("Roboto", 9F);
+            this.lbl_battery_info.Location = new System.Drawing.Point(8, 10);
+            this.lbl_battery_info.Name = "lbl_battery_info";
+            this.lbl_battery_info.Size = new System.Drawing.Size(69, 14);
+            this.lbl_battery_info.TabIndex = 20;
+            this.lbl_battery_info.Text = "Battery info";
             // 
             // Home
             // 
@@ -691,14 +717,17 @@
             this.storage.ResumeLayout(false);
             this.storage.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart_disk)).EndInit();
+            this.battery.ResumeLayout(false);
+            this.battery.PerformLayout();
             this.panel_main.ResumeLayout(false);
             this.panel_main.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pWRITE)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pREAD)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -743,10 +772,12 @@
         private System.Windows.Forms.Timer timerRefresh;
         private System.Windows.Forms.TabPage os;
         private System.Windows.Forms.Label lbl_storage_info;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.PictureBox pictureBox4;
+        private System.Windows.Forms.PictureBox pictureBox5;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label lbl_battery_info;
     }
 }
 

@@ -30,5 +30,9 @@ A few kernal classes was called to pull required data, a couple of charts and pr
 <img src="https://github.com/V014/PowerHouse/blob/main/screenshots/powerhouse-ram.png" alt="image of app showing ram statistics"/>
 
 ## DISK statistics
-<p>show their activity when transfering media.</p>
+<p>This tab shows the usage of the Hard drive or solid state drive, both reading and writing data.</p>
 <img src="https://github.com/V014/PowerHouse/blob/main/screenshots/powerhouse-storage.png" alt="image of app showing disk statistics"/>
+
+## Battery statistics
+<p>This tab shows the remaining battery life and other importat details to know about your battery.</p>
+<img src="https://github.com/V014/PowerHouse/blob/main/screenshots/powerhouse-battery.png" alt="image of app showing battery statistics"/>
