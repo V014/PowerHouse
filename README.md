@@ -4,6 +4,7 @@ A few kernal classes was called to pull required data, a couple of charts and pr
 
 ## Fixes & Bugs
 - set process refresh to 30 seconds.
+- the app throws an exception when there is an influx on the read counter 
 
 ## Updates
 - added image icons on most tabs
