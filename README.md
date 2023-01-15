@@ -1,6 +1,16 @@
-# PowerHouse
+# PowerHouse 2.1
 This windows task manager shows the CPU, RAM, disk usage powered by .Net C# and Bunifu Ui
 A few kernal classes was called to pull required data, a couple of charts and progress bars
+
+## Fixes & Bugs
+- set process refresh to 30 seconds.
+
+## Updates
+- added image icons on most tabs
+- added a read process counter
+- the app will remeber the selected process on refresh
+- added a virtual memory reading on the ram tab
+- The app is now not sizeable
 
 ## System information
 <p>The operating system deaileds are displayed to give you an idea of the software installed on the hardware</p>
