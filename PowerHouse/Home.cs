@@ -18,7 +18,7 @@ namespace PowerHouse
         {
             InitializeComponent();
             // pull stats
-            // Load_processes();
+            Load_processes();
             Storage_info();
             Cpu_info();
             Os_info();
@@ -26,7 +26,7 @@ namespace PowerHouse
             // set timer to auto refresh
             Timer timerRefresh = new Timer
             {
-                Interval = (15 * 1000) // 10 seconds
+                Interval = (30 * 1000) // 30 seconds
             };
             timerRefresh.Tick += new EventHandler(TimerRefresh_Tick);
             // start the refresh counter
@@ -42,8 +42,6 @@ namespace PowerHouse
             list_processes.SelectedIndex = OldFocusedIndex;
             // load the storage
             Storage_info();
-            // load the ram
-            Ram_info();
         }
         // load information about operating system
         private void Os_info()
@@ -59,6 +57,7 @@ namespace PowerHouse
                 string Architecute = "";
                 string Build = "";
                 string DeviceName = "";
+                //string User = "";
 
                 foreach (ManagementObject result in results)
                 {
@@ -67,8 +66,10 @@ namespace PowerHouse
                     Architecute = (string)result["OSArchitecture"];
                     DeviceName = (string)result["CSName"];
                     Build = (string)result["BuildNumber"];
+                    //User = (string)result["NumberOfProcesses"];
                     // append results
                     sb.AppendLine(string.Format("Windows Version : " + Version));
+                   // sb.AppendLine(string.Format("Registered User : " + User));
                     sb.AppendLine(string.Format("OS Architecture : " + Architecute));
                     sb.AppendLine(string.Format("Device Name : " + DeviceName));
                     sb.AppendLine(string.Format("Build Number : " + Build));

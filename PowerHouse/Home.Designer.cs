@@ -51,6 +51,8 @@
             this.lbl_cpu_stat = new System.Windows.Forms.Label();
             this.lbl_ram_stat = new System.Windows.Forms.Label();
             this.tab_main = new System.Windows.Forms.TabControl();
+            this.os = new System.Windows.Forms.TabPage();
+            this.lbl_storage_info = new System.Windows.Forms.Label();
             this.apps = new System.Windows.Forms.TabPage();
             this.list_processes = new System.Windows.Forms.ListBox();
             this.menu_processes = new System.Windows.Forms.ContextMenuStrip(this.components);
@@ -75,13 +77,16 @@
             this.pWRITE = new System.Diagnostics.PerformanceCounter();
             this.pREAD = new System.Diagnostics.PerformanceCounter();
             this.timerRefresh = new System.Windows.Forms.Timer(this.components);
-            this.os = new System.Windows.Forms.TabPage();
-            this.lbl_storage_info = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pRAM)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pCPU)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart_cpu)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart_ram)).BeginInit();
             this.tab_main.SuspendLayout();
+            this.os.SuspendLayout();
             this.apps.SuspendLayout();
             this.menu_processes.SuspendLayout();
             this.cpu.SuspendLayout();
@@ -91,7 +96,10 @@
             this.panel_main.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pWRITE)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pREAD)).BeginInit();
-            this.os.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.SuspendLayout();
             // 
             // pRAM
@@ -278,8 +286,30 @@
             this.tab_main.Size = new System.Drawing.Size(346, 292);
             this.tab_main.TabIndex = 21;
             // 
+            // os
+            // 
+            this.os.Controls.Add(this.pictureBox1);
+            this.os.Controls.Add(this.lbl_storage_info);
+            this.os.Location = new System.Drawing.Point(4, 22);
+            this.os.Name = "os";
+            this.os.Size = new System.Drawing.Size(338, 266);
+            this.os.TabIndex = 5;
+            this.os.Text = "System";
+            this.os.UseVisualStyleBackColor = true;
+            // 
+            // lbl_storage_info
+            // 
+            this.lbl_storage_info.AutoSize = true;
+            this.lbl_storage_info.Font = new System.Drawing.Font("Roboto", 9F);
+            this.lbl_storage_info.Location = new System.Drawing.Point(8, 12);
+            this.lbl_storage_info.Name = "lbl_storage_info";
+            this.lbl_storage_info.Size = new System.Drawing.Size(71, 14);
+            this.lbl_storage_info.TabIndex = 1;
+            this.lbl_storage_info.Text = "System info";
+            // 
             // apps
             // 
+            this.apps.Controls.Add(this.pictureBox2);
             this.apps.Controls.Add(this.list_processes);
             this.apps.Location = new System.Drawing.Point(4, 22);
             this.apps.Name = "apps";
@@ -318,6 +348,7 @@
             // 
             // cpu
             // 
+            this.cpu.Controls.Add(this.pictureBox3);
             this.cpu.Controls.Add(this.lbl_cpu_model);
             this.cpu.Controls.Add(this.chart_cpu);
             this.cpu.Location = new System.Drawing.Point(4, 22);
@@ -340,6 +371,7 @@
             // 
             // ram
             // 
+            this.ram.Controls.Add(this.pictureBox4);
             this.ram.Controls.Add(this.lbl_ram_info);
             this.ram.Controls.Add(this.chart_ram);
             this.ram.Location = new System.Drawing.Point(4, 22);
@@ -588,25 +620,45 @@
             // 
             this.timerRefresh.Tick += new System.EventHandler(this.TimerRefresh_Tick);
             // 
-            // os
+            // pictureBox1
             // 
-            this.os.Controls.Add(this.lbl_storage_info);
-            this.os.Location = new System.Drawing.Point(4, 22);
-            this.os.Name = "os";
-            this.os.Size = new System.Drawing.Size(338, 266);
-            this.os.TabIndex = 5;
-            this.os.Text = "System";
-            this.os.UseVisualStyleBackColor = true;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(140, 116);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(195, 150);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 2;
+            this.pictureBox1.TabStop = false;
             // 
-            // lbl_storage_info
+            // pictureBox2
             // 
-            this.lbl_storage_info.AutoSize = true;
-            this.lbl_storage_info.Font = new System.Drawing.Font("Roboto", 9F);
-            this.lbl_storage_info.Location = new System.Drawing.Point(8, 12);
-            this.lbl_storage_info.Name = "lbl_storage_info";
-            this.lbl_storage_info.Size = new System.Drawing.Size(71, 14);
-            this.lbl_storage_info.TabIndex = 1;
-            this.lbl_storage_info.Text = "System info";
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(181, 143);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(161, 127);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 3;
+            this.pictureBox2.TabStop = false;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
+            this.pictureBox3.Location = new System.Drawing.Point(227, 6);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(103, 73);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox3.TabIndex = 20;
+            this.pictureBox3.TabStop = false;
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
+            this.pictureBox4.Location = new System.Drawing.Point(213, 12);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(117, 73);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox4.TabIndex = 21;
+            this.pictureBox4.TabStop = false;
             // 
             // Home
             // 
@@ -616,6 +668,9 @@
             this.ClientSize = new System.Drawing.Size(346, 401);
             this.Controls.Add(this.panel_main);
             this.Controls.Add(this.tab_main);
+            this.Cursor = System.Windows.Forms.Cursors.Default;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.MinimumSize = new System.Drawing.Size(360, 440);
             this.Name = "Home";
             this.Text = "PowerHouse";
@@ -625,6 +680,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.chart_cpu)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart_ram)).EndInit();
             this.tab_main.ResumeLayout(false);
+            this.os.ResumeLayout(false);
+            this.os.PerformLayout();
             this.apps.ResumeLayout(false);
             this.menu_processes.ResumeLayout(false);
             this.cpu.ResumeLayout(false);
@@ -638,8 +695,10 @@
             this.panel_main.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pWRITE)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pREAD)).EndInit();
-            this.os.ResumeLayout(false);
-            this.os.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -684,6 +743,10 @@
         private System.Windows.Forms.Timer timerRefresh;
         private System.Windows.Forms.TabPage os;
         private System.Windows.Forms.Label lbl_storage_info;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.PictureBox pictureBox4;
     }
 }
 
