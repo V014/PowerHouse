@@ -12,12 +12,12 @@ A few kernal classes was called to pull required data, a couple of charts and pr
 
 ## CPU statistics
 <p>The CPU stats are breif for the average user looking for staright facts about the poower the computer has</p>
-![Alt text of the image](https://github.com/V014/PowerHouse/blob/main/screenshots/powerhouse-cpu.png)
+<img src="https://github.com/V014/PowerHouse/blob/main/screenshots/powerhouse-cpu.png" alt="image of app showing cpu statistics"/>
 
 ## RAM statistics
 <p>Rather economical at presenting activity, but it is all normal</p>
-![Alt text of the image](https://github.com/V014/PowerHouse/blob/main/screenshots/powerhouse-ram.png)
+<img src="https://github.com/V014/PowerHouse/blob/main/screenshots/powerhouse-ram.png" alt="image of app showing ram statistics"/>
 
 ## DISK statistics
 <p>show their activity when transfering media.</p>
-![Alt text of the image](https://github.com/V014/PowerHouse/blob/main/screenshots/powerhouse-storage.png)
+<img src="https://github.com/V014/PowerHouse/blob/main/screenshots/powerhouse-storage.png" alt="image of app showing disk statistics"/>
