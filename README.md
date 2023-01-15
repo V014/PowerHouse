@@ -23,11 +23,11 @@ A few kernal classes was called to pull required data, a couple of charts and pr
 
 ## CPU statistics
 <p>The CPU stats are breif straight facts about the power, and cores the process has</p>
-<img src="https://github.com/V014/PowerHouse/blob/main/screenshots/powerhouse-cpu.png" alt="image of app showing cpu statistics"/>
+<img src="https://github.com/V014/PowerHouse/blob/main/screenshots/powerhouse-cpu.png" alt="image of app showing cpu image"/>
 
 ## RAM statistics
 <p>Rather economical at presenting activity, but it is all normal</p>
-<img src="https://github.com/V014/PowerHouse/blob/main/screenshots/powerhouse-ram.png" alt="image of app showing ram statistics"/>
+<img src="https://github.com/V014/PowerHouse/blob/main/screenshots/powerhouse-ram.png" alt="image of app showing ram image"/>
 
 ## DISK statistics
 <p>This tab shows the usage of the Hard drive or solid state drive, both reading and writing data.</p>
@@ -35,4 +35,8 @@ A few kernal classes was called to pull required data, a couple of charts and pr
 
 ## Battery statistics
 <p>This tab shows the remaining battery life and other importat details to know about your battery.</p>
-<img src="https://github.com/V014/PowerHouse/blob/main/screenshots/powerhouse-battery.png" alt="image of app showing battery statistics"/>
+<img src="https://github.com/V014/PowerHouse/blob/main/screenshots/powerhouse-battery.png" alt="image of app showing battery image"/>
+
+## GPU Info
+<p>Since this was prematurelly added, the gpu tab will show static information and evovle over updates.</p>
+<img src="https://github.com/V014/PowerHouse/blob/main/screenshots/powerhouse-gpu.png" alt="image of app showing gpu image"/>
