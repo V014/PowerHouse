@@ -647,7 +647,7 @@
             // 
             this.lbl_battery_info.AutoSize = true;
             this.lbl_battery_info.Font = new System.Drawing.Font("Roboto", 9F);
-            this.lbl_battery_info.Location = new System.Drawing.Point(8, 10);
+            this.lbl_battery_info.Location = new System.Drawing.Point(8, 12);
             this.lbl_battery_info.Name = "lbl_battery_info";
             this.lbl_battery_info.Size = new System.Drawing.Size(69, 14);
             this.lbl_battery_info.TabIndex = 20;
@@ -695,6 +695,7 @@
             // 
             // gpu
             // 
+            this.gpu.BackColor = System.Drawing.Color.White;
             this.gpu.Controls.Add(this.lbl_gpu_stats);
             this.gpu.Controls.Add(this.pictureBox6);
             this.gpu.Location = new System.Drawing.Point(4, 22);
@@ -702,13 +703,12 @@
             this.gpu.Size = new System.Drawing.Size(338, 266);
             this.gpu.TabIndex = 6;
             this.gpu.Text = "GPU";
-            this.gpu.UseVisualStyleBackColor = true;
             // 
             // lbl_gpu_stats
             // 
             this.lbl_gpu_stats.AutoSize = true;
             this.lbl_gpu_stats.Font = new System.Drawing.Font("Roboto", 9F);
-            this.lbl_gpu_stats.Location = new System.Drawing.Point(8, 7);
+            this.lbl_gpu_stats.Location = new System.Drawing.Point(8, 12);
             this.lbl_gpu_stats.Name = "lbl_gpu_stats";
             this.lbl_gpu_stats.Size = new System.Drawing.Size(55, 14);
             this.lbl_gpu_stats.TabIndex = 22;

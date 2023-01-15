@@ -295,19 +295,12 @@ namespace PowerHouse
 
                 foreach (ManagementObject mo in osDetailsCollection)
                 {
-                    var adapterRam = mo.Properties["AdapterDACType"];
                     sb.AppendLine(string.Format("Name : {0}", mo["Name"]));
                     sb.AppendLine(string.Format("DeviceID: {0}", mo["DeviceID"]));
                     sb.AppendLine(string.Format("AdapterRAM : {0}", mo["AdapterRAM"]));
-                    sb.AppendLine(string.Format("AdapterDACType : {0}GB", adapterRam));
                     sb.AppendLine(string.Format("VideoProcessor : {0}", mo["VideoProcessor"]));
                     sb.AppendLine(string.Format("VideoArchitecture : {0}", mo["VideoArchitecture"]));
                     sb.AppendLine(string.Format("VideoMemoryType : {0}", mo["VideoMemoryType"]));
-                    //UInt16[] PowerManagement = (UInt16[])mo["PowerManagementCapabilities"];
-                    //foreach (uint version in PowerManagement)
-                    //{
-                    //    sb.AppendLine(string.Format("PowerManagementCapabilities: {0}", version.ToString()));
-                    //}
                 }
                 lbl_gpu_stats.Text = sb.ToString();
             }
