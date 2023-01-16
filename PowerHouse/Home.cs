@@ -324,16 +324,15 @@ namespace PowerHouse
                 {
                     // Check Name
                     sb.AppendLine(string.Format("GPU : {0}", mo["Name"]));
-                    // check ID
-                    sb.AppendLine(string.Format("DeviceID: {0}", mo["DeviceID"]));
                     //check gpu ram
                     UInt32 AdapterRam = (UInt32)mo["AdapterRAM"] / (UInt32)BytesInGB;
                     sb.AppendLine(string.Format("Adapter Ram : {0}GB", AdapterRam));
                     // check driver version
                     sb.AppendLine(string.Format("Driver Version : {0}", (string)mo["DriverVersion"]));
+                    sb.AppendLine(string.Format("Refresh Rate : {0}Hz", mo["CurrentRefreshRate"]));
+                    sb.AppendLine(string.Format("Display Port : {0}", mo["AdapterDACType"]));
                     // check status
                     sb.AppendLine(string.Format("Status : {0}", (string)mo["Status"]));
-                    sb.AppendLine(string.Format("Supported Memory : {0}", (string)mo["MaxMemorySupported"]));
                 }
                 lbl_gpu_stats.Text = sb.ToString();
             }
