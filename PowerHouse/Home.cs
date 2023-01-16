@@ -2,6 +2,7 @@
 using System.IO;
 using System.Data;
 using System.Management;
+using System.Security.Principal;
 using System.Windows.Forms;
 using System.Diagnostics;
 using System.Text;
@@ -59,7 +60,7 @@ namespace PowerHouse
                 string Architecute = "";
                 string Build = "";
                 string DeviceName = "";
-                //string User = "";
+                string User = WindowsIdentity.GetCurrent().Name;
 
                 foreach (ManagementObject result in results)
                 {
@@ -70,8 +71,8 @@ namespace PowerHouse
                     Build = (string)result["BuildNumber"];
                     //User = (string)result["NumberOfProcesses"];
                     // append results
-                    sb.AppendLine(string.Format("Windows Version : " + Version));
-                   // sb.AppendLine(string.Format("Registered User : " + User));
+                    sb.AppendLine(string.Format("Edition : " + Version));
+                    sb.AppendLine(string.Format("Registered User : " + User));
                     sb.AppendLine(string.Format("OS Architecture : " + Architecute));
                     sb.AppendLine(string.Format("Device Name : " + DeviceName));
                     sb.AppendLine(string.Format("Build Number : " + Build));
@@ -80,10 +81,11 @@ namespace PowerHouse
                 // display result
                 lbl_storage_info.Text = (sb.ToString());
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 // display result
-                lbl_storage_info.Text = "Storage data unavailable";
+                lbl_storage_info.Text = "Operating system data unavailable";
+                MessageBox.Show(ex.ToString());
             }
         }
         // load information about ram
@@ -266,19 +268,42 @@ namespace PowerHouse
 
             foreach (ManagementObject mo in osDetailsCollection)
             {
-                sb.AppendLine(string.Format("Availability: {0}", (ushort)mo["Availability"]));
-                sb.AppendLine(string.Format("BatteryStatus: {0}", (ushort)mo["BatteryStatus"]));
-                sb.AppendLine(string.Format("Description: {0}", (string)mo["Description"]));
+                // Battery percentage
+                ushort ChargeRemaining = (ushort)mo["EstimatedChargeRemaining"];
+                progress_battery.Value = ChargeRemaining;
+                lbl_battery_stat.Text = ChargeRemaining + "%";
+
+                //sb.AppendLine(string.Format("Availability: {0}", (ushort)mo["Availability"]));
+                // check if power is connected or using battery
+                ushort BatteryStatus = (ushort)mo["BatteryStatus"];
+                if (BatteryStatus == 1)
+                {
+                    sb.AppendLine(string.Format("Battery Status: {0}", "Using Battery power"));
+                }
+                else
+                {
+                    sb.AppendLine(string.Format("Battery Status: {0}", "Ac Adapter connected"));
+                }
+
+                sb.AppendLine(string.Format("Description: {0}", (string)mo["Description"])); // internal battery
                 sb.AppendLine(string.Format("DesignVoltage: {0} Volts", (ulong)mo["DesignVoltage"]));
-                sb.AppendLine(string.Format("DeviceID : {0}", (string)mo["DeviceID"]));
-                sb.AppendLine(string.Format("EstimatedChargeRemaining: {0}%", (ushort)mo["EstimatedChargeRemaining"]));
-                sb.AppendLine(string.Format("EstimatedRunTime : {0} Minutes", mo["EstimatedRunTime"]).ToString());
-                sb.AppendLine(string.Format("Name : {0}", (string)mo["Name"]));
+                sb.AppendLine(string.Format("Serial : {0}", (string)mo["DeviceID"]));
+                
+
+                sb.AppendLine(string.Format("Estimated Duration : {0} Minutes", mo["EstimatedRunTime"]).ToString());
                 sb.AppendLine(string.Format("Status : {0}", (string)mo["Status"]));
+                // check if there is software that manages the battery
                 UInt16[] PowerManagement = (UInt16[])mo["PowerManagementCapabilities"];
                 foreach (uint version in PowerManagement)
                 {
-                    sb.AppendLine(string.Format("PowerManagementCapabilities: {0}", version.ToString()));
+                    if (version == 1)
+                    {
+                        sb.AppendLine(string.Format("Power Management: {0}", "Available"));
+                    }
+                    else
+                    {
+                        sb.AppendLine(string.Format("Power Management: {0}", "Unavailable"));
+                    }
                 }
             }
             lbl_battery_info.Text = sb.ToString();
@@ -295,20 +320,17 @@ namespace PowerHouse
 
                 foreach (ManagementObject mo in osDetailsCollection)
                 {
-                    sb.AppendLine(string.Format("Name : {0}", mo["Name"]));
+                    sb.AppendLine(string.Format("GPU : {0}", mo["Name"]));
                     sb.AppendLine(string.Format("DeviceID: {0}", mo["DeviceID"]));
                     sb.AppendLine(string.Format("AdapterRAM : {0}", mo["AdapterRAM"]));
-                    sb.AppendLine(string.Format("VideoProcessor : {0}", mo["VideoProcessor"]));
-                    sb.AppendLine(string.Format("VideoArchitecture : {0}", mo["VideoArchitecture"]));
-                    sb.AppendLine(string.Format("VideoMemoryType : {0}", mo["VideoMemoryType"]));
                 }
                 lbl_gpu_stats.Text = sb.ToString();
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString(),"Oops this is rather embarassing");
+                MessageBox.Show(ex.ToString(), "Oops this is rather embarassing");
             }
-            
+
         }
     }
 }
