@@ -318,11 +318,22 @@ namespace PowerHouse
                 ManagementObjectCollection osDetailsCollection = objOSDetails.Get();
                 StringBuilder sb = new StringBuilder();
 
+                // check if there is software that manages the battery
+                
                 foreach (ManagementObject mo in osDetailsCollection)
                 {
+                    // Check Name
                     sb.AppendLine(string.Format("GPU : {0}", mo["Name"]));
+                    // check ID
                     sb.AppendLine(string.Format("DeviceID: {0}", mo["DeviceID"]));
-                    sb.AppendLine(string.Format("AdapterRAM : {0}", mo["AdapterRAM"]));
+                    //check gpu ram
+                    UInt32 AdapterRam = (UInt32)mo["AdapterRAM"] / (UInt32)BytesInGB;
+                    sb.AppendLine(string.Format("Adapter Ram : {0}GB", AdapterRam));
+                    // check driver version
+                    sb.AppendLine(string.Format("Driver Version : {0}", (string)mo["DriverVersion"]));
+                    // check status
+                    sb.AppendLine(string.Format("Status : {0}", (string)mo["Status"]));
+                    sb.AppendLine(string.Format("Supported Memory : {0}", (string)mo["MaxMemorySupported"]));
                 }
                 lbl_gpu_stats.Text = sb.ToString();
             }
