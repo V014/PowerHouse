@@ -272,8 +272,6 @@ namespace PowerHouse
                 ushort ChargeRemaining = (ushort)mo["EstimatedChargeRemaining"];
                 progress_battery.Value = ChargeRemaining;
                 lbl_battery_stat.Text = ChargeRemaining + "%";
-
-                //sb.AppendLine(string.Format("Availability: {0}", (ushort)mo["Availability"]));
                 // check if power is connected or using battery
                 ushort BatteryStatus = (ushort)mo["BatteryStatus"];
                 if (BatteryStatus == 1)
@@ -284,14 +282,14 @@ namespace PowerHouse
                 {
                     sb.AppendLine(string.Format("Battery Status: {0}", "Ac Adapter connected"));
                 }
-
-                sb.AppendLine(string.Format("Description: {0}", (string)mo["Description"])); // internal battery
-                sb.AppendLine(string.Format("DesignVoltage: {0} Volts", (ulong)mo["DesignVoltage"]));
-                sb.AppendLine(string.Format("Serial : {0}", (string)mo["DeviceID"]));
-                
-
+                // check estimated time remaining
                 sb.AppendLine(string.Format("Estimated Duration : {0} Minutes", mo["EstimatedRunTime"]).ToString());
-                sb.AppendLine(string.Format("Status : {0}", (string)mo["Status"]));
+                // check battery type
+                sb.AppendLine(string.Format("Description: {0}", (string)mo["Description"])); // internal battery
+                // check voltage
+                sb.AppendLine(string.Format("DesignVoltage: {0} Volts", (ulong)mo["DesignVoltage"]));
+                // check serial number
+                sb.AppendLine(string.Format("Serial : {0}", (string)mo["DeviceID"]));
                 // check if there is software that manages the battery
                 UInt16[] PowerManagement = (UInt16[])mo["PowerManagementCapabilities"];
                 foreach (uint version in PowerManagement)
@@ -305,6 +303,8 @@ namespace PowerHouse
                         sb.AppendLine(string.Format("Power Management: {0}", "Unavailable"));
                     }
                 }
+                // check status
+                sb.AppendLine(string.Format("Status : {0}", (string)mo["Status"]));
             }
             lbl_battery_info.Text = sb.ToString();
         }
