@@ -38,7 +38,7 @@ A few kernal classes was called to pull required data, a couple of charts and pr
 <img src="https://github.com/V014/PowerHouse/blob/main/screenshots/powerhouse-battery.png" alt="image of app showing battery image"/>
 
 ## GPU Info
-<p>Since this was prematurelly added, the gpu tab will show static information and evovle over updates.</p>
+<p>Since this was prematurelly added, the gpu tab will show static information and evolve over updates.</p>
 <img src="https://github.com/V014/PowerHouse/blob/main/screenshots/powerhouse-gpu.png" alt="image of app showing gpu image"/>
 
 ## Inspiration
