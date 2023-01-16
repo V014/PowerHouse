@@ -40,3 +40,7 @@ A few kernal classes was called to pull required data, a couple of charts and pr
 ## GPU Info
 <p>Since this was prematurelly added, the gpu tab will show static information and evovle over updates.</p>
 <img src="https://github.com/V014/PowerHouse/blob/main/screenshots/powerhouse-gpu.png" alt="image of app showing gpu image"/>
+
+## Inspiration
+<p>The new battery manager in Microsoft's Windows 11 is a big inspiration to the battery tab of PowerHouse.</p>
+<img src="https://github.com/V014/PowerHouse/blob/main/screenshots/powerhouse-inspiration.png" alt="image of app showing gpu image"/>
