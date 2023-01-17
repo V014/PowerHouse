@@ -276,45 +276,6 @@ namespace PowerHouse
                 ushort ChargeRemaining = (ushort)mo["EstimatedChargeRemaining"];
                 progress_battery.Value = ChargeRemaining;
                 lbl_battery_stat.Text = ChargeRemaining + "%";
-                /*
-                using(SpeechSynthesizer synth = new SpeechSynthesizer())
-                {
-                    if (ChargeRemaining == 100)
-                    {
-                        // Configure the audio output.   
-                        synth.SetOutputToDefaultAudioDevice();
-
-                        // Create a prompt from a string.  
-                        Prompt remark = new Prompt("I am fully charged.");
-
-                        // Speak the contents of the prompt synchronously.  
-                        synth.Speak(remark);
-
-                    } else if(ChargeRemaining < 70){
-                        // Create a prompt from a string.  
-                        Prompt remark = new Prompt("Wanga the battery is less than 70%.");
-
-                        // Speak the contents of the prompt synchronously.  
-                        synth.Speak(remark);
-                    }
-                    else if (ChargeRemaining < 50)
-                    {
-                        // Create a prompt from a string.  
-                        Prompt remark = new Prompt("Yoh Wanga, the battery is less than half its charge, plug me in please.");
-
-                        // Speak the contents of the prompt synchronously.  
-                        synth.Speak(remark);
-                    }
-                    else if (ChargeRemaining < 30)
-                    {
-                        // Create a prompt from a string.  
-                        Prompt remark = new Prompt("The battery is less than 30%, where now in the red zone.");
-
-                        // Speak the contents of the prompt synchronously.  
-                        synth.Speak(remark);
-                    }
-                }
-                */
                 // check if power is connected or using battery
                 ushort BatteryStatus = (ushort)mo["BatteryStatus"];
                 if (BatteryStatus == 1)
@@ -396,44 +357,57 @@ namespace PowerHouse
             SelectQuery Sq = new SelectQuery("Win32_Battery");
             ManagementObjectSearcher objOSDetails = new ManagementObjectSearcher(Sq);
             ManagementObjectCollection osDetailsCollection = objOSDetails.Get();
-
-            if(tab_main.SelectedTab == battery)
+            
+            if (tab_main.SelectedTab == battery)
             {
             foreach (ManagementObject mo in osDetailsCollection)
             {
                 // Battery percentage
                 ushort ChargeRemaining = (ushort)mo["EstimatedChargeRemaining"];
+                Prompt remark = null;
+                
                 using (SpeechSynthesizer synth = new SpeechSynthesizer())
                 {
-
-                    if (ChargeRemaining == 100)
+                    if ((ushort)mo["BatteryStatus"] == 2)
                     {
+                        // select male senior (if it exists)
+                        synth.SelectVoiceByHints(VoiceGender.Female, VoiceAge.Teen);
                         // Configure the audio output.   
                         synth.SetOutputToDefaultAudioDevice();
-
                         // Create a prompt from a string.  
-                        Prompt remark = new Prompt("I am fully charged.");
+                        remark = new Prompt("Battery, on charge. now " + ChargeRemaining + " %");
 
                         // Speak the contents of the prompt synchronously.  
                         synth.Speak(remark);
+                        }
+                        else
+                        {
+                            if (ChargeRemaining == 100)
+                            {
+                                // Create a prompt from a string.  
+                                remark = new Prompt("I am fully charged.");
 
-                    }
-                    else if (ChargeRemaining < 50)
-                    {
-                        // Create a prompt from a string.  
-                        Prompt remark = new Prompt("the battery is less than 50%.");
+                                // Speak the contents of the prompt synchronously.  
+                                synth.Speak(remark);
 
-                        // Speak the contents of the prompt synchronously.  
-                        synth.Speak(remark);
-                    }
-                    else if (ChargeRemaining < 30)
-                    {
-                        // Create a prompt from a string.  
-                        Prompt remark = new Prompt("The battery is less than 30%, where now in the red zone.");
+                            }
+                            else if (ChargeRemaining < 30)
+                            {
+                                // Create a prompt from a string.  
+                                remark = new Prompt(ChargeRemaining + "% battery left");
 
-                        // Speak the contents of the prompt synchronously.  
-                        synth.Speak(remark);
-                    }
+                                // Speak the contents of the prompt synchronously.  
+                                synth.Speak(remark);
+                            }
+                            else
+                            {
+                                // Create a prompt from a string.  
+                                remark = new Prompt("Battery cells at, " + ChargeRemaining + "% charge");
+
+                                // Speak the contents of the prompt synchronously.  
+                                synth.Speak(remark);
+                            }
+                        }
                 }
             }
             }
