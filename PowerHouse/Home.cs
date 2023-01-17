@@ -342,5 +342,10 @@ namespace PowerHouse
             }
 
         }
+        // load bios info
+        private void Bios_info()
+        {
+
+        }
     }
 }
