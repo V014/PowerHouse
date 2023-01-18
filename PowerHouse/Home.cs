@@ -1,13 +1,10 @@
 ﻿using System;
 using System.IO;
-using System.Data;
 using System.Management;
 using System.Security.Principal;
 using System.Windows.Forms;
 using System.Diagnostics;
 using System.Text;
-using System.Speech;
-using System.Speech.Recognition;
 using System.Speech.Synthesis;
 
 namespace PowerHouse
@@ -234,10 +231,9 @@ namespace PowerHouse
         // load information about the storage
         private void Storage_info()
         {
-
+            //Get root directory
             string path = "C:\\Windows";
             string rootDir = Directory.GetDirectoryRoot(path);
-
             //Get all information of Drive i.e C
             DriveInfo driveInfo = new DriveInfo(rootDir);
             // convert storage in byte to gb and round by 1
@@ -357,28 +353,29 @@ namespace PowerHouse
             SelectQuery Sq = new SelectQuery("Win32_Battery");
             ManagementObjectSearcher objOSDetails = new ManagementObjectSearcher(Sq);
             ManagementObjectCollection osDetailsCollection = objOSDetails.Get();
-            
-            if (tab_main.SelectedTab == battery)
-            {
-            foreach (ManagementObject mo in osDetailsCollection)
-            {
-                // Battery percentage
-                ushort ChargeRemaining = (ushort)mo["EstimatedChargeRemaining"];
-                Prompt remark = null;
-                
-                using (SpeechSynthesizer synth = new SpeechSynthesizer())
-                {
-                    if ((ushort)mo["BatteryStatus"] == 2)
-                    {
-                        // select male senior (if it exists)
-                        synth.SelectVoiceByHints(VoiceGender.Female, VoiceAge.Teen);
-                        // Configure the audio output.   
-                        synth.SetOutputToDefaultAudioDevice();
-                        // Create a prompt from a string.  
-                        remark = new Prompt("Battery, on charge. now " + ChargeRemaining + " %");
 
-                        // Speak the contents of the prompt synchronously.  
-                        synth.Speak(remark);
+            using (SpeechSynthesizer synth = new SpeechSynthesizer())
+            {
+                if (tab_main.SelectedTab == battery)
+                {
+                    foreach (ManagementObject mo in osDetailsCollection)
+                    {
+                        // Battery percentage
+                        ushort ChargeRemaining = (ushort)mo["EstimatedChargeRemaining"];
+                        Prompt remark = null;
+
+
+                        if ((ushort)mo["BatteryStatus"] == 2)
+                        {
+                            // select male senior (if it exists)
+                            synth.SelectVoiceByHints(VoiceGender.Female, VoiceAge.Teen);
+                            // Configure the audio output.   
+                            synth.SetOutputToDefaultAudioDevice();
+                            // Create a prompt from a string.  
+                            remark = new Prompt("Battery, on charge. now " + ChargeRemaining + " %");
+
+                            // Speak the contents of the prompt synchronously.  
+                            synth.Speak(remark);
                         }
                         else
                         {
@@ -401,15 +398,50 @@ namespace PowerHouse
                             }
                             else
                             {
+                                // select male senior (if it exists)
+                                synth.SelectVoiceByHints(VoiceGender.Female, VoiceAge.Teen);
                                 // Create a prompt from a string.  
-                                remark = new Prompt("Battery cells at, " + ChargeRemaining + "% charge");
+                                remark = new Prompt(ChargeRemaining + "% charge remaining");
 
                                 // Speak the contents of the prompt synchronously.  
                                 synth.Speak(remark);
-                            }
-                        }
+                            } 
+                        } // battery status
+                    }
                 }
-            }
+                else if (tab_main.SelectedTab == storage)
+                {
+                    try
+                    {
+                        foreach (ManagementObject mo in osDetailsCollection)
+                        {
+                            Prompt remark = null;
+                            //Get root directory
+                            string path = "C:\\Windows";
+                            string rootDir = Directory.GetDirectoryRoot(path);
+                            //Get all information of Drive i.e C
+                            DriveInfo driveInfo = new DriveInfo(rootDir);
+                            // convert storage in byte to gb and round by 1
+                            double availableFreeSpace = Math.Round((driveInfo.AvailableFreeSpace / BytesInGB), 1);
+                            //curating driver stats for user
+                            double totalSize = Math.Round((driveInfo.TotalSize / BytesInGB));
+                            double StoragePercentage = (100 / totalSize) * availableFreeSpace;
+                            double StorageUsage = 100 - Math.Round(StoragePercentage, 1);
+                            // select male senior (if it exists)
+                            synth.SelectVoiceByHints(VoiceGender.Female, VoiceAge.Teen);
+                            // Configure the audio output.   
+                            synth.SetOutputToDefaultAudioDevice();
+                            // Create a prompt from a string.  
+                            remark = new Prompt(100 - StorageUsage + "% storage remaining");
+                            // Speak the contents of the prompt synchronously.  
+                            synth.Speak(remark);
+                        }
+                    }
+                    catch (Exception)
+                    {
+
+                    }
+                }
             }
         }
     }
