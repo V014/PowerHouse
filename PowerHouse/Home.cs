@@ -276,14 +276,19 @@ namespace PowerHouse
                 ushort BatteryStatus = (ushort)mo["BatteryStatus"];
                 if (BatteryStatus == 1)
                 {
+                    // show the whats happening to the battery
                     sb.AppendLine(string.Format("Battery Status: {0}", "Using Battery power"));
+                    // show battery duration on battery
+                    sb.AppendLine(string.Format("Estimated Duration : {0} Minutes", mo["EstimatedRunTime"]).ToString());
                 }
                 else
                 {
                     sb.AppendLine(string.Format("Battery Status: {0}", "Ac Adapter connected"));
+                    
                 }
-                // check estimated time remaining
-                sb.AppendLine(string.Format("Estimated Duration : {0} Minutes", mo["EstimatedRunTime"]).ToString());
+                // check battery status
+
+                
                 // check battery type
                 sb.AppendLine(string.Format("Description: {0}", (string)mo["Description"])); // internal battery
                 // check voltage
@@ -342,12 +347,7 @@ namespace PowerHouse
             }
 
         }
-        // load bios info
-        private void Bios_info()
-        {
-
-        }
-
+        // speak when tab selected
         private void Tab_main_SelectedIndexChanged(object sender, EventArgs e)
         {
             SelectQuery Sq = new SelectQuery("Win32_Battery");
@@ -363,17 +363,16 @@ namespace PowerHouse
                         // Battery percentage
                         ushort ChargeRemaining = (ushort)mo["EstimatedChargeRemaining"];
                         Prompt remark = null;
-
+                        // select male senior (if it exists)
+                        synth.SelectVoiceByHints(VoiceGender.Female, VoiceAge.Teen);
+                        // Configure the audio output.   
+                        synth.SetOutputToDefaultAudioDevice();
 
                         if ((ushort)mo["BatteryStatus"] == 2)
                         {
-                            // select male senior (if it exists)
-                            synth.SelectVoiceByHints(VoiceGender.Female, VoiceAge.Teen);
-                            // Configure the audio output.   
-                            synth.SetOutputToDefaultAudioDevice();
                             // Create a prompt from a string.  
                             remark = new Prompt("Battery, on charge. now " + ChargeRemaining + " %");
-
+                            // change estimated run time
                             // Speak the contents of the prompt synchronously.  
                             synth.Speak(remark);
                         }
@@ -383,7 +382,6 @@ namespace PowerHouse
                             {
                                 // Create a prompt from a string.  
                                 remark = new Prompt("I am fully charged.");
-
                                 // Speak the contents of the prompt synchronously.  
                                 synth.Speak(remark);
 
@@ -398,8 +396,6 @@ namespace PowerHouse
                             }
                             else
                             {
-                                // select male senior (if it exists)
-                                synth.SelectVoiceByHints(VoiceGender.Female, VoiceAge.Teen);
                                 // Create a prompt from a string.  
                                 remark = new Prompt(ChargeRemaining + "% charge remaining");
 
