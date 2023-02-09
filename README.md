@@ -11,7 +11,7 @@ A few kernal classes was called to pull required data, a couple of charts and pr
 - added a read process counter
 - the app will remeber the selected process on refresh
 - added a virtual memory reading on the ram tab
-- The app is now not sizeable
+- The app is now not re-sizeable
 
 ## System information
 <p>The operating system deaileds are displayed to give you an idea of the software installed on the hardware</p>
