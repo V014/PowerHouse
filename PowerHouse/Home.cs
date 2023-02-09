@@ -16,7 +16,6 @@ namespace PowerHouse
         const double BytesInGB = 1073741824;
         private int OldFocusedIndex = 0;
 
-
         public Home()
         {
             InitializeComponent();
@@ -373,7 +372,6 @@ namespace PowerHouse
                 lbl_network_info.Text = "Netowrk info unknown";
             }
         }
-
         // speak when tab selected
         private void Tab_main_SelectedIndexChanged(object sender, EventArgs e)
         {
