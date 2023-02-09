@@ -52,10 +52,10 @@
             this.lbl_ram_stat = new System.Windows.Forms.Label();
             this.tab_main = new System.Windows.Forms.TabControl();
             this.system = new System.Windows.Forms.TabPage();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.groupProcessor = new System.Windows.Forms.GroupBox();
             this.lbl_gpu_stats = new System.Windows.Forms.Label();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupOs = new System.Windows.Forms.GroupBox();
             this.lbl_storage_info = new System.Windows.Forms.Label();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.apps = new System.Windows.Forms.TabPage();
@@ -87,21 +87,21 @@
             this.lbl_battery_info = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.network = new System.Windows.Forms.TabPage();
-            this.label1 = new System.Windows.Forms.Label();
-            this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.panel_main = new System.Windows.Forms.Panel();
             this.pWRITE = new System.Diagnostics.PerformanceCounter();
             this.pREAD = new System.Diagnostics.PerformanceCounter();
             this.timerRefresh = new System.Windows.Forms.Timer(this.components);
+            this.lbl_network_info = new System.Windows.Forms.Label();
+            this.groupNetwork = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.pRAM)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pCPU)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart_cpu)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart_ram)).BeginInit();
             this.tab_main.SuspendLayout();
             this.system.SuspendLayout();
-            this.groupBox2.SuspendLayout();
+            this.groupProcessor.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
-            this.groupBox1.SuspendLayout();
+            this.groupOs.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.apps.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -115,10 +115,10 @@
             this.battery.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.network.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             this.panel_main.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pWRITE)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pREAD)).BeginInit();
+            this.groupNetwork.SuspendLayout();
             this.SuspendLayout();
             // 
             // pRAM
@@ -197,11 +197,12 @@
             chartArea1.AxisX.LabelStyle.Enabled = false;
             chartArea1.AxisX.LineColor = System.Drawing.Color.Gray;
             chartArea1.AxisX.LogarithmBase = 5D;
+            chartArea1.AxisX.MajorGrid.Enabled = false;
             chartArea1.AxisY.LabelAutoFitMaxFontSize = 8;
             chartArea1.AxisY.LineColor = System.Drawing.Color.Gray;
+            chartArea1.AxisY.MajorGrid.LineColor = System.Drawing.Color.Gray;
             chartArea1.AxisY.Maximum = 100D;
             chartArea1.Name = "ChartArea1";
-            chartArea1.ShadowOffset = 6;
             this.chart_cpu.ChartAreas.Add(chartArea1);
             this.chart_cpu.Dock = System.Windows.Forms.DockStyle.Bottom;
             legend1.Enabled = false;
@@ -212,6 +213,7 @@
             this.chart_cpu.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Excel;
             series1.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.DiagonalLeft;
             series1.BorderColor = System.Drawing.Color.MediumSlateBlue;
+            series1.BorderWidth = 2;
             series1.ChartArea = "ChartArea1";
             series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Area;
             series1.Legend = "Legend1";
@@ -311,32 +313,32 @@
             // 
             this.system.AutoScroll = true;
             this.system.BackColor = System.Drawing.Color.White;
-            this.system.Controls.Add(this.groupBox2);
-            this.system.Controls.Add(this.groupBox1);
+            this.system.Controls.Add(this.groupProcessor);
+            this.system.Controls.Add(this.groupOs);
             this.system.Location = new System.Drawing.Point(4, 22);
             this.system.Name = "system";
             this.system.Size = new System.Drawing.Size(358, 266);
             this.system.TabIndex = 5;
             this.system.Text = "System";
             // 
-            // groupBox2
+            // groupProcessor
             // 
-            this.groupBox2.Controls.Add(this.lbl_gpu_stats);
-            this.groupBox2.Controls.Add(this.pictureBox6);
-            this.groupBox2.Location = new System.Drawing.Point(8, 119);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(342, 144);
-            this.groupBox2.TabIndex = 26;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Graphics Processor";
+            this.groupProcessor.Controls.Add(this.lbl_gpu_stats);
+            this.groupProcessor.Controls.Add(this.pictureBox6);
+            this.groupProcessor.Location = new System.Drawing.Point(8, 119);
+            this.groupProcessor.Name = "groupProcessor";
+            this.groupProcessor.Size = new System.Drawing.Size(342, 144);
+            this.groupProcessor.TabIndex = 26;
+            this.groupProcessor.TabStop = false;
+            this.groupProcessor.Text = "Graphics Processor";
             // 
             // lbl_gpu_stats
             // 
             this.lbl_gpu_stats.AutoSize = true;
-            this.lbl_gpu_stats.Font = new System.Drawing.Font("Roboto", 9F);
+            this.lbl_gpu_stats.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.lbl_gpu_stats.Location = new System.Drawing.Point(6, 16);
             this.lbl_gpu_stats.Name = "lbl_gpu_stats";
-            this.lbl_gpu_stats.Size = new System.Drawing.Size(55, 14);
+            this.lbl_gpu_stats.Size = new System.Drawing.Size(56, 15);
             this.lbl_gpu_stats.TabIndex = 23;
             this.lbl_gpu_stats.Text = "GPU info";
             // 
@@ -350,24 +352,24 @@
             this.pictureBox6.TabIndex = 24;
             this.pictureBox6.TabStop = false;
             // 
-            // groupBox1
+            // groupOs
             // 
-            this.groupBox1.Controls.Add(this.lbl_storage_info);
-            this.groupBox1.Controls.Add(this.pictureBox5);
-            this.groupBox1.Location = new System.Drawing.Point(8, 3);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(342, 110);
-            this.groupBox1.TabIndex = 25;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Operating System";
+            this.groupOs.Controls.Add(this.lbl_storage_info);
+            this.groupOs.Controls.Add(this.pictureBox5);
+            this.groupOs.Location = new System.Drawing.Point(8, 3);
+            this.groupOs.Name = "groupOs";
+            this.groupOs.Size = new System.Drawing.Size(342, 110);
+            this.groupOs.TabIndex = 25;
+            this.groupOs.TabStop = false;
+            this.groupOs.Text = "Operating System";
             // 
             // lbl_storage_info
             // 
             this.lbl_storage_info.AutoSize = true;
-            this.lbl_storage_info.Font = new System.Drawing.Font("Roboto", 9F);
+            this.lbl_storage_info.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.lbl_storage_info.Location = new System.Drawing.Point(6, 16);
             this.lbl_storage_info.Name = "lbl_storage_info";
-            this.lbl_storage_info.Size = new System.Drawing.Size(71, 14);
+            this.lbl_storage_info.Size = new System.Drawing.Size(70, 15);
             this.lbl_storage_info.TabIndex = 1;
             this.lbl_storage_info.Text = "System info";
             // 
@@ -408,9 +410,9 @@
             this.list_processes.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.list_processes.ContextMenuStrip = this.menu_processes;
             this.list_processes.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.list_processes.Font = new System.Drawing.Font("Roboto", 9F);
+            this.list_processes.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.list_processes.FormattingEnabled = true;
-            this.list_processes.ItemHeight = 14;
+            this.list_processes.ItemHeight = 15;
             this.list_processes.Location = new System.Drawing.Point(0, 0);
             this.list_processes.Name = "list_processes";
             this.list_processes.Size = new System.Drawing.Size(358, 266);
@@ -457,10 +459,10 @@
             // lbl_cpu_model
             // 
             this.lbl_cpu_model.AutoSize = true;
-            this.lbl_cpu_model.Font = new System.Drawing.Font("Roboto", 9F);
+            this.lbl_cpu_model.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.lbl_cpu_model.Location = new System.Drawing.Point(8, 12);
             this.lbl_cpu_model.Name = "lbl_cpu_model";
-            this.lbl_cpu_model.Size = new System.Drawing.Size(55, 14);
+            this.lbl_cpu_model.Size = new System.Drawing.Size(55, 15);
             this.lbl_cpu_model.TabIndex = 19;
             this.lbl_cpu_model.Text = "CPU info";
             // 
@@ -490,10 +492,10 @@
             // lbl_ram_info
             // 
             this.lbl_ram_info.AutoSize = true;
-            this.lbl_ram_info.Font = new System.Drawing.Font("Roboto", 9F);
+            this.lbl_ram_info.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.lbl_ram_info.Location = new System.Drawing.Point(8, 12);
             this.lbl_ram_info.Name = "lbl_ram_info";
-            this.lbl_ram_info.Size = new System.Drawing.Size(56, 14);
+            this.lbl_ram_info.Size = new System.Drawing.Size(57, 15);
             this.lbl_ram_info.TabIndex = 19;
             this.lbl_ram_info.Text = "RAM info";
             // 
@@ -519,10 +521,10 @@
             // lbl_space
             // 
             this.lbl_space.AutoSize = true;
-            this.lbl_space.Font = new System.Drawing.Font("Roboto", 7F);
+            this.lbl_space.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
             this.lbl_space.Location = new System.Drawing.Point(3, 14);
             this.lbl_space.Name = "lbl_space";
-            this.lbl_space.Size = new System.Drawing.Size(36, 13);
+            this.lbl_space.Size = new System.Drawing.Size(40, 13);
             this.lbl_space.TabIndex = 20;
             this.lbl_space.Text = "Space:";
             // 
@@ -561,20 +563,20 @@
             // lbl_read
             // 
             this.lbl_read.AutoSize = true;
-            this.lbl_read.Font = new System.Drawing.Font("Roboto", 7F);
+            this.lbl_read.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
             this.lbl_read.Location = new System.Drawing.Point(2, 41);
             this.lbl_read.Name = "lbl_read";
-            this.lbl_read.Size = new System.Drawing.Size(31, 13);
+            this.lbl_read.Size = new System.Drawing.Size(35, 13);
             this.lbl_read.TabIndex = 20;
             this.lbl_read.Text = "Read:";
             // 
             // lbl_disk
             // 
             this.lbl_disk.AutoSize = true;
-            this.lbl_disk.Font = new System.Drawing.Font("Roboto", 7F);
+            this.lbl_disk.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
             this.lbl_disk.Location = new System.Drawing.Point(2, 71);
             this.lbl_disk.Name = "lbl_disk";
-            this.lbl_disk.Size = new System.Drawing.Size(31, 13);
+            this.lbl_disk.Size = new System.Drawing.Size(33, 13);
             this.lbl_disk.TabIndex = 20;
             this.lbl_disk.Text = "Write:";
             // 
@@ -607,10 +609,10 @@
             // lbl_storage_stat
             // 
             this.lbl_storage_stat.AutoSize = true;
-            this.lbl_storage_stat.Font = new System.Drawing.Font("Roboto", 7F);
+            this.lbl_storage_stat.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
             this.lbl_storage_stat.Location = new System.Drawing.Point(311, 14);
             this.lbl_storage_stat.Name = "lbl_storage_stat";
-            this.lbl_storage_stat.Size = new System.Drawing.Size(20, 13);
+            this.lbl_storage_stat.Size = new System.Drawing.Size(22, 13);
             this.lbl_storage_stat.TabIndex = 20;
             this.lbl_storage_stat.Text = "0%";
             // 
@@ -643,10 +645,10 @@
             // lbl_read_stat
             // 
             this.lbl_read_stat.AutoSize = true;
-            this.lbl_read_stat.Font = new System.Drawing.Font("Roboto", 7F);
+            this.lbl_read_stat.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
             this.lbl_read_stat.Location = new System.Drawing.Point(311, 42);
             this.lbl_read_stat.Name = "lbl_read_stat";
-            this.lbl_read_stat.Size = new System.Drawing.Size(20, 13);
+            this.lbl_read_stat.Size = new System.Drawing.Size(22, 13);
             this.lbl_read_stat.TabIndex = 20;
             this.lbl_read_stat.Text = "0%";
             // 
@@ -679,10 +681,10 @@
             // lbl_disk_stat
             // 
             this.lbl_disk_stat.AutoSize = true;
-            this.lbl_disk_stat.Font = new System.Drawing.Font("Roboto", 7F);
+            this.lbl_disk_stat.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
             this.lbl_disk_stat.Location = new System.Drawing.Point(311, 72);
             this.lbl_disk_stat.Name = "lbl_disk_stat";
-            this.lbl_disk_stat.Size = new System.Drawing.Size(20, 13);
+            this.lbl_disk_stat.Size = new System.Drawing.Size(22, 13);
             this.lbl_disk_stat.TabIndex = 20;
             this.lbl_disk_stat.Text = "0%";
             // 
@@ -703,10 +705,10 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Roboto", 7F);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
             this.label2.Location = new System.Drawing.Point(3, 14);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(41, 13);
+            this.label2.Size = new System.Drawing.Size(44, 13);
             this.label2.TabIndex = 22;
             this.label2.Text = "Charge:";
             // 
@@ -739,20 +741,20 @@
             // lbl_battery_stat
             // 
             this.lbl_battery_stat.AutoSize = true;
-            this.lbl_battery_stat.Font = new System.Drawing.Font("Roboto", 7F);
+            this.lbl_battery_stat.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
             this.lbl_battery_stat.Location = new System.Drawing.Point(311, 14);
             this.lbl_battery_stat.Name = "lbl_battery_stat";
-            this.lbl_battery_stat.Size = new System.Drawing.Size(20, 13);
+            this.lbl_battery_stat.Size = new System.Drawing.Size(22, 13);
             this.lbl_battery_stat.TabIndex = 23;
             this.lbl_battery_stat.Text = "0%";
             // 
             // lbl_battery_info
             // 
             this.lbl_battery_info.AutoSize = true;
-            this.lbl_battery_info.Font = new System.Drawing.Font("Roboto", 9F);
+            this.lbl_battery_info.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.lbl_battery_info.Location = new System.Drawing.Point(17, 43);
             this.lbl_battery_info.Name = "lbl_battery_info";
-            this.lbl_battery_info.Size = new System.Drawing.Size(69, 14);
+            this.lbl_battery_info.Size = new System.Drawing.Size(67, 15);
             this.lbl_battery_info.TabIndex = 20;
             this.lbl_battery_info.Text = "Battery info";
             // 
@@ -769,33 +771,12 @@
             // network
             // 
             this.network.BackColor = System.Drawing.Color.White;
-            this.network.Controls.Add(this.label1);
-            this.network.Controls.Add(this.pictureBox7);
+            this.network.Controls.Add(this.groupNetwork);
             this.network.Location = new System.Drawing.Point(4, 22);
             this.network.Name = "network";
             this.network.Size = new System.Drawing.Size(358, 266);
             this.network.TabIndex = 7;
             this.network.Text = "Network";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Roboto", 9F);
-            this.label1.Location = new System.Drawing.Point(8, 12);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(55, 14);
-            this.label1.TabIndex = 23;
-            this.label1.Text = "GPU info";
-            // 
-            // pictureBox7
-            // 
-            this.pictureBox7.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox7.Image")));
-            this.pictureBox7.Location = new System.Drawing.Point(244, 152);
-            this.pictureBox7.Name = "pictureBox7";
-            this.pictureBox7.Size = new System.Drawing.Size(106, 106);
-            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox7.TabIndex = 22;
-            this.pictureBox7.TabStop = false;
             // 
             // panel_main
             // 
@@ -827,6 +808,27 @@
             // 
             this.timerRefresh.Tick += new System.EventHandler(this.TimerRefresh_Tick);
             // 
+            // lbl_network_info
+            // 
+            this.lbl_network_info.AutoSize = true;
+            this.lbl_network_info.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.lbl_network_info.Location = new System.Drawing.Point(6, 16);
+            this.lbl_network_info.Name = "lbl_network_info";
+            this.lbl_network_info.Size = new System.Drawing.Size(75, 15);
+            this.lbl_network_info.TabIndex = 21;
+            this.lbl_network_info.Text = "Network info";
+            // 
+            // groupNetwork
+            // 
+            this.groupNetwork.Controls.Add(this.lbl_network_info);
+            this.groupNetwork.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupNetwork.Location = new System.Drawing.Point(0, 0);
+            this.groupNetwork.Name = "groupNetwork";
+            this.groupNetwork.Size = new System.Drawing.Size(358, 266);
+            this.groupNetwork.TabIndex = 22;
+            this.groupNetwork.TabStop = false;
+            this.groupNetwork.Text = "Network Adapters";
+            // 
             // Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -848,11 +850,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.chart_ram)).EndInit();
             this.tab_main.ResumeLayout(false);
             this.system.ResumeLayout(false);
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
+            this.groupProcessor.ResumeLayout(false);
+            this.groupProcessor.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.groupOs.ResumeLayout(false);
+            this.groupOs.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             this.apps.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
@@ -870,12 +872,12 @@
             this.battery.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.network.ResumeLayout(false);
-            this.network.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             this.panel_main.ResumeLayout(false);
             this.panel_main.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pWRITE)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pREAD)).EndInit();
+            this.groupNetwork.ResumeLayout(false);
+            this.groupNetwork.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -929,13 +931,13 @@
         private System.Windows.Forms.PictureBox pictureBox6;
         private System.Windows.Forms.Label lbl_gpu_stats;
         private System.Windows.Forms.TabPage network;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.PictureBox pictureBox7;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox groupProcessor;
+        private System.Windows.Forms.GroupBox groupOs;
         private System.Windows.Forms.Label label2;
         private Bunifu.UI.WinForms.BunifuProgressBar progress_battery;
         private System.Windows.Forms.Label lbl_battery_stat;
+        private System.Windows.Forms.Label lbl_network_info;
+        private System.Windows.Forms.GroupBox groupNetwork;
     }
 }
 

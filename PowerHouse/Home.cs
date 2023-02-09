@@ -6,6 +6,7 @@ using System.Windows.Forms;
 using System.Diagnostics;
 using System.Text;
 using System.Speech.Synthesis;
+using System.Collections.Generic;
 
 namespace PowerHouse
 {
@@ -27,6 +28,7 @@ namespace PowerHouse
             Ram_info();
             Battery_info();
             GPU_info();
+            Network_info();
             // set timer to auto refresh
             Timer timerRefresh = new Timer
             {
@@ -160,7 +162,7 @@ namespace PowerHouse
             }
             catch (Exception)
             {
-                lbl_cpu_model.Text = "Processor Model unknow";
+                lbl_cpu_model.Text = "Processor Model unknown";
             }
         }
         // load active counters using the timer class
@@ -347,6 +349,31 @@ namespace PowerHouse
             }
 
         }
+        // load Network stats
+        private void Network_info()
+        {
+            // call classes to pull cpu name
+            ObjectQuery query = new ObjectQuery("SELECT * FROM Win32_NetworkAdapterConfiguration");
+            ManagementObjectSearcher searcher = new ManagementObjectSearcher(query);
+            StringBuilder sb = new StringBuilder();
+
+            ManagementObjectCollection queryCollection = searcher.Get();
+            foreach (ManagementObject m in queryCollection)
+            {
+                //sb.AppendLine(string.Format("Caption : {0}", (string)m["Caption"]));
+                //sb.AppendLine(string.Format("Description : {0}", (string)m["Description"]));
+                sb.AppendLine(m["Description"].ToString());
+            }
+            try
+            {
+                lbl_network_info.Text = sb.ToString();
+            }
+            catch (Exception)
+            {
+                lbl_network_info.Text = "Netowrk info unknown";
+            }
+        }
+
         // speak when tab selected
         private void Tab_main_SelectedIndexChanged(object sender, EventArgs e)
         {

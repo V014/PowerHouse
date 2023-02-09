@@ -1,20 +1,14 @@
 c:\users\wanga\documents\visual studio 2015\Projects\PowerHouse\PowerHouse\bin\Debug\PowerHouse.exe.config
 c:\users\wanga\documents\visual studio 2015\Projects\PowerHouse\PowerHouse\bin\Debug\PowerHouse.exe
 c:\users\wanga\documents\visual studio 2015\Projects\PowerHouse\PowerHouse\bin\Debug\PowerHouse.pdb
-c:\users\wanga\documents\visual studio 2015\Projects\PowerHouse\PowerHouse\bin\Debug\MetroFramework.dll
 c:\users\wanga\documents\visual studio 2015\Projects\PowerHouse\PowerHouse\obj\Debug\PowerHouse.csprojResolveAssemblyReference.cache
 c:\users\wanga\documents\visual studio 2015\Projects\PowerHouse\PowerHouse\obj\Debug\PowerHouse.Home.resources
 c:\users\wanga\documents\visual studio 2015\Projects\PowerHouse\PowerHouse\obj\Debug\PowerHouse.Properties.Resources.resources
 c:\users\wanga\documents\visual studio 2015\Projects\PowerHouse\PowerHouse\obj\Debug\PowerHouse.csproj.GenerateResource.Cache
 c:\users\wanga\documents\visual studio 2015\Projects\PowerHouse\PowerHouse\obj\Debug\PowerHouse.exe
 c:\users\wanga\documents\visual studio 2015\Projects\PowerHouse\PowerHouse\obj\Debug\PowerHouse.pdb
-c:\users\wanga\documents\visual studio 2015\Projects\PowerHouse\PowerHouse\bin\Debug\Bunifu.UI.WinForms.BunifuProgressBar.dll
 c:\users\wanga\documents\visual studio 2015\Projects\PowerHouse\PowerHouse\bin\Debug\Bunifu.UI.WinForms.BunifuProgressBar.xml
 c:\users\wanga\documents\visual studio 2015\Projects\PowerHouse\PowerHouse\obj\Debug\PowerHouse.exe.licenses
-C:\Users\Wanga\Documents\Visual Studio 2015\Projects\PowerHouse\PowerHouse\bin\Debug\Bunifu.UI.WinForms.BunifuButton.dll
-C:\Users\Wanga\Documents\Visual Studio 2015\Projects\PowerHouse\PowerHouse\bin\Debug\Bunifu.UI.WinForms.BunifuButton.xml
-C:\Users\Wanga\Documents\Visual Studio 2015\Projects\PowerHouse\PowerHouse\bin\Debug\Bunifu.UI.WinForms.BunifuLabel.dll
-C:\Users\Wanga\Documents\Visual Studio 2015\Projects\PowerHouse\PowerHouse\bin\Debug\Bunifu.UI.WinForms.BunifuLabel.xml
 C:\Users\Wanga Kanjala\source\repos\PowerHouse\PowerHouse\obj\Debug\PowerHouse.exe
 C:\Users\Wanga Kanjala\source\repos\PowerHouse\PowerHouse\obj\Debug\PowerHouse.pdb
 C:\Users\Wanga Kanjala\source\repos\PowerHouse\PowerHouse\bin\Debug\PowerHouse.exe.config
