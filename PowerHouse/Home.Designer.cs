@@ -87,12 +87,12 @@
             this.lbl_battery_info = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.network = new System.Windows.Forms.TabPage();
+            this.groupNetwork = new System.Windows.Forms.GroupBox();
+            this.lbl_network_info = new System.Windows.Forms.Label();
             this.panel_main = new System.Windows.Forms.Panel();
             this.pWRITE = new System.Diagnostics.PerformanceCounter();
             this.pREAD = new System.Diagnostics.PerformanceCounter();
             this.timerRefresh = new System.Windows.Forms.Timer(this.components);
-            this.lbl_network_info = new System.Windows.Forms.Label();
-            this.groupNetwork = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.pRAM)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pCPU)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart_cpu)).BeginInit();
@@ -115,10 +115,10 @@
             this.battery.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.network.SuspendLayout();
+            this.groupNetwork.SuspendLayout();
             this.panel_main.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pWRITE)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pREAD)).BeginInit();
-            this.groupNetwork.SuspendLayout();
             this.SuspendLayout();
             // 
             // pRAM
@@ -778,6 +778,27 @@
             this.network.TabIndex = 7;
             this.network.Text = "Network";
             // 
+            // groupNetwork
+            // 
+            this.groupNetwork.Controls.Add(this.lbl_network_info);
+            this.groupNetwork.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupNetwork.Location = new System.Drawing.Point(0, 0);
+            this.groupNetwork.Name = "groupNetwork";
+            this.groupNetwork.Size = new System.Drawing.Size(358, 266);
+            this.groupNetwork.TabIndex = 22;
+            this.groupNetwork.TabStop = false;
+            this.groupNetwork.Text = "Network Adapters";
+            // 
+            // lbl_network_info
+            // 
+            this.lbl_network_info.AutoSize = true;
+            this.lbl_network_info.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.lbl_network_info.Location = new System.Drawing.Point(6, 16);
+            this.lbl_network_info.Name = "lbl_network_info";
+            this.lbl_network_info.Size = new System.Drawing.Size(75, 15);
+            this.lbl_network_info.TabIndex = 21;
+            this.lbl_network_info.Text = "Network info";
+            // 
             // panel_main
             // 
             this.panel_main.Controls.Add(this.lbl_ram);
@@ -808,27 +829,6 @@
             // 
             this.timerRefresh.Tick += new System.EventHandler(this.TimerRefresh_Tick);
             // 
-            // lbl_network_info
-            // 
-            this.lbl_network_info.AutoSize = true;
-            this.lbl_network_info.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.lbl_network_info.Location = new System.Drawing.Point(6, 16);
-            this.lbl_network_info.Name = "lbl_network_info";
-            this.lbl_network_info.Size = new System.Drawing.Size(75, 15);
-            this.lbl_network_info.TabIndex = 21;
-            this.lbl_network_info.Text = "Network info";
-            // 
-            // groupNetwork
-            // 
-            this.groupNetwork.Controls.Add(this.lbl_network_info);
-            this.groupNetwork.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupNetwork.Location = new System.Drawing.Point(0, 0);
-            this.groupNetwork.Name = "groupNetwork";
-            this.groupNetwork.Size = new System.Drawing.Size(358, 266);
-            this.groupNetwork.TabIndex = 22;
-            this.groupNetwork.TabStop = false;
-            this.groupNetwork.Text = "Network Adapters";
-            // 
             // Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -839,6 +839,7 @@
             this.Controls.Add(this.tab_main);
             this.Cursor = System.Windows.Forms.Cursors.Default;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimumSize = new System.Drawing.Size(360, 440);
             this.Name = "Home";
@@ -872,12 +873,12 @@
             this.battery.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.network.ResumeLayout(false);
+            this.groupNetwork.ResumeLayout(false);
+            this.groupNetwork.PerformLayout();
             this.panel_main.ResumeLayout(false);
             this.panel_main.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pWRITE)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pREAD)).EndInit();
-            this.groupNetwork.ResumeLayout(false);
-            this.groupNetwork.PerformLayout();
             this.ResumeLayout(false);
 
         }
